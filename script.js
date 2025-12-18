@@ -1,176 +1,175 @@
-/* THE TRUTH ENGINE */
-
-let beliefLevel = 0;
-
-// Updates the visual progress bar based on user interaction
-function updateMeter(amount) {
-    beliefLevel += amount;
-    if (beliefLevel > 100) beliefLevel = 100;
+document.addEventListener('DOMContentLoaded', () => {
     
-    const meter = document.getElementById('beliefMeter');
-    meter.style.width = beliefLevel + '%';
-    meter.innerText = 'TRUTH METER: ' + beliefLevel + '%';
-}
-
-// Logic for clicking the faces (Evidence #1)
-function analyzeFace(element) {
-    const circle = document.getElementById('redCircle');
-    const rect = element.getBoundingClientRect();
-    const containerRect = document.getElementById('faceArea').getBoundingClientRect();
-    
-    circle.style.display = 'block';
-    circle.style.left = (rect.left - containerRect.left) + 'px';
-    circle.style.top = (rect.top - containerRect.top) + 'px';
-    circle.style.animation = 'shake 0.2s infinite';
-
-    setTimeout(() => {
-        document.getElementById('faceText').style.display = 'block';
-        updateMeter(25);
-    }, 1000);
-}
-
-// Logic for hovering over lyrics (Evidence #2)
-function revealLyric(element, text) {
-    element.dataset.original = element.innerText;
-    element.innerText = text;
-    element.style.color = 'red';
-    element.style.fontFamily = 'Impact';
-    element.style.letterSpacing = '2px';
-}
-
-function hideLyric(element, originalText) {
-    element.innerText = originalText;
-    element.style.color = '#00ff00';
-    element.style.fontFamily = 'Courier New';
-    element.style.letterSpacing = 'normal';
-    updateMeter(10);
-}
-
-// Logic for Audio Visualizer (Evidence #2.5)
-function playAudioAnalysis() {
-    const bars = document.querySelectorAll('.bar');
-    const text = document.getElementById('audio-text');
-    
-    text.innerText = "ANALYZING FREQUENCY...";
-    text.style.color = "yellow";
-
-    let counter = 0;
-    // Chaotic interval
-    const interval = setInterval(() => {
-        bars.forEach(bar => {
-            const height = Math.floor(Math.random() * 90) + 10;
-            bar.style.height = height + '%';
-            bar.classList.add('active');
+    // --- 1. RANDOM ROTATION FOR CARDS ---
+    const cards = document.querySelectorAll('.evidence-card');
+    cards.forEach(card => {
+        const randomRot = (Math.random() * 6) - 3; // -3 to 3 deg
+        card.style.setProperty('--rotation', `${randomRot}deg`);
+        
+        // Expand functionality
+        card.addEventListener('click', () => {
+            const expanded = card.querySelector('.expanded-text');
+            expanded.classList.toggle('hidden');
+            drawRedStrings(); // Redraw strings as cards change height
         });
-        counter++;
+    });
 
-        if (counter > 20) { // Stop after ~2 seconds
-            clearInterval(interval);
-            bars.forEach(bar => {
-                bar.style.height = '10px';
-                bar.classList.remove('active');
-                bar.style.backgroundColor = 'red';
-            });
-            text.innerHTML = "RESULT: <span style='color:red; font-weight:bold;'>VOICE PRINT MISMATCH (ERROR 404)</span>";
-            updateMeter(15);
-        }
-    }, 100);
-}
+    // --- 2. SCROLL PROGRESS ---
+    const progressBar = document.getElementById('progressBar');
+    window.addEventListener('scroll', () => {
+        const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+        const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+        const scrolled = (scrollTop / scrollHeight) * 100;
+        progressBar.style.width = scrolled + "%";
+        
+        // Random classified stamp effect logic could go here
+    });
 
-// Logic for Skin Enhancement (Evidence #2.9)
-function enhanceSkin(element) {
-    // Invert colors to show "X-Ray" mode
-    element.style.filter = "invert(100%) contrast(200%)";
-    
-    // If it's the second circle (the fake one), trigger a message
-    if (element.innerText.includes("FAKE")) {
-        if(!element.dataset.scanned) {
-            updateMeter(10);
-            element.dataset.scanned = "true";
+    // --- 3. RED STRINGS GENERATOR ---
+    function drawRedStrings() {
+        const svg = document.getElementById('redStrings');
+        svg.innerHTML = ''; // Clear existing
+        const container = document.getElementById('evidenceGrid');
+        const cardElements = Array.from(document.querySelectorAll('.evidence-card'));
+        const containerRect = container.getBoundingClientRect();
+        
+        // Draw 5-8 random connections
+        const intensity = parseInt(document.getElementById('intensitySlider').value);
+        const numLines = 5 + (intensity * 3);
+
+        for(let i=0; i<numLines; i++) {
+            const cardA = cardElements[Math.floor(Math.random() * cardElements.length)];
+            let cardB = cardElements[Math.floor(Math.random() * cardElements.length)];
+            while(cardA === cardB) {
+                cardB = cardElements[Math.floor(Math.random() * cardElements.length)];
+            }
+
+            // Get pin coordinates relative to container
+            const rectA = cardA.querySelector('.pin').getBoundingClientRect();
+            const rectB = cardB.querySelector('.pin').getBoundingClientRect();
+
+            // Calculate center of pin relative to SVG (which overlays the grid)
+            const x1 = rectA.left - containerRect.left + (rectA.width/2);
+            const y1 = rectA.top - containerRect.top + (rectA.height/2);
+            const x2 = rectB.left - containerRect.left + (rectB.width/2);
+            const y2 = rectB.top - containerRect.top + (rectB.height/2);
+
+            const line = document.createElementNS('http://www.w3.org/2000/svg', 'line');
+            line.setAttribute('x1', x1);
+            line.setAttribute('y1', y1);
+            line.setAttribute('x2', x2);
+            line.setAttribute('y2', y2);
+            svg.appendChild(line);
         }
     }
-}
 
-// Add mouseout listener for Skin Enhancement
-document.querySelectorAll('.skin-patch').forEach(patch => {
-    patch.addEventListener('mouseout', () => {
-        patch.style.filter = "none";
+    // Draw strings on load and resize
+    window.addEventListener('load', drawRedStrings);
+    window.addEventListener('resize', drawRedStrings);
+
+    // --- 4. INTENSITY SLIDER ---
+    const slider = document.getElementById('intensitySlider');
+    const label = document.getElementById('intensityLabel');
+    const body = document.body;
+
+    slider.addEventListener('input', (e) => {
+        const val = parseInt(e.target.value);
+        body.className = ''; // reset
+        
+        if (val === 1) {
+            label.innerText = "LOW";
+            body.classList.add('intensity-low');
+            document.documentElement.style.setProperty('--noise-opacity', '0.05');
+        } else if (val === 2) {
+            label.innerText = "MEDIUM";
+            body.classList.add('intensity-med');
+            document.documentElement.style.setProperty('--noise-opacity', '0.15');
+        } else {
+            label.innerText = "HIGH (UNHINGED)";
+            body.classList.add('intensity-high');
+            document.documentElement.style.setProperty('--noise-opacity', '0.3');
+        }
+        drawRedStrings();
+    });
+
+    // --- 5. GENERATE EVIDENCE BUTTON ---
+    const newEvidenceLines = [
+        "My source is a forum post from 2007 and I trust it with my life.",
+        "This is either a cover-up or a very intense skincare routine.",
+        "They don’t want you to know this because it sounds ridiculous.",
+        "Wake up. The dots are dotting.",
+        "If you deny this, you are simply afraid of the truth and also fun.",
+        "I have connected 14 unrelated events. That’s called research."
+    ];
+
+    document.getElementById('generateEvidenceBtn').addEventListener('click', () => {
+        const cards = document.querySelectorAll('.evidence-card');
+        const randomCard = cards[Math.floor(Math.random() * cards.length)];
+        const shortText = randomCard.querySelector('.short-text');
+        
+        // Add glitch effect
+        shortText.style.color = "var(--neon-green)";
+        shortText.innerText = "DECRYPTING...";
+        
+        setTimeout(() => {
+            shortText.innerText = newEvidenceLines[Math.floor(Math.random() * newEvidenceLines.length)];
+            shortText.style.color = "inherit";
+            // Flash effects
+            randomCard.style.boxShadow = "0 0 20px white";
+            setTimeout(() => { randomCard.style.boxShadow = ""; }, 300);
+        }, 500);
+    });
+
+    // --- 6. QUIZ LOGIC ---
+    let yesCount = 0;
+    const qBtns = document.querySelectorAll('.q-btn');
+    
+    qBtns.forEach(btn => {
+        btn.addEventListener('click', function() {
+            // Visual selection
+            const siblings = this.parentElement.querySelectorAll('.q-btn');
+            siblings.forEach(s => s.classList.remove('selected'));
+            this.classList.add('selected');
+        });
+    });
+
+    document.getElementById('calculateResult').addEventListener('click', () => {
+        yesCount = document.querySelectorAll('.q-btn.selected[data-val="yes"]').length;
+        const resultDiv = document.getElementById('quizResult');
+        const rTitle = document.getElementById('resultTitle');
+        const rDesc = document.getElementById('resultDesc');
+        
+        resultDiv.classList.remove('hidden');
+        
+        if (yesCount <= 1) {
+            rTitle.innerText = "RESULT: 0–1 YES";
+            rDesc.innerText = "You are still reachable. Go touch grass while you can.";
+        } else if (yesCount <= 3) {
+            rTitle.innerText = "RESULT: 2–3 YES";
+            rDesc.innerText = "You are halfway on the corkboard. One more documentary and you're ours.";
+        } else {
+            rTitle.innerText = "RESULT: 4–5 YES";
+            rDesc.innerText = "Welcome. Here’s your red string. The meetings are on Tuesdays.";
+        }
+    });
+
+    // --- 7. EXTRAS ---
+    // Signal Interference
+    document.getElementById('toggleInterference').addEventListener('click', () => {
+        document.body.classList.toggle('active-interference');
+    });
+
+    // Modal
+    const modal = document.getElementById('modal');
+    document.getElementById('downloadBtn').addEventListener('click', () => {
+        modal.style.display = 'flex';
+    });
+    document.querySelector('.close-modal').addEventListener('click', () => {
+        modal.style.display = 'none';
+    });
+    window.addEventListener('click', (e) => {
+        if (e.target == modal) {
+            modal.style.display = 'none';
+        }
     });
 });
-
-// Logic for the Red String board (Evidence #3)
-function drawStrings() {
-    const canvas = document.getElementById('canvas-area');
-    
-    for(let i=0; i<5; i++) {
-        let line = document.createElement('div');
-        line.style.position = 'absolute';
-        line.style.height = '2px';
-        line.style.background = 'red';
-        line.style.width = '100px';
-        line.style.top = Math.random() * 100 + 'px';
-        line.style.left = Math.random() * 200 + 'px';
-        line.style.transform = 'rotate(' + (Math.random() * 360) + 'deg)';
-        canvas.appendChild(line);
-    }
-    updateMeter(20);
-}
-
-// Logic for the Final Reveal Button
-function finalReveal() {
-    if (beliefLevel < 50) {
-        alert("YOU HAVEN'T LOOKED AT ENOUGH EVIDENCE! SCROLL UP SHEEPLE!");
-        window.scrollTo(0,0);
-    } else {
-        document.getElementById('truthModal').style.display = 'flex';
-    }
-}
-
-// RESET FUNCTION
-function resetInvestigation() {
-    beliefLevel = 0;
-    
-    // Reset visual meter
-    const meter = document.getElementById('beliefMeter');
-    meter.style.width = '0%';
-    meter.innerText = 'TRUTH METER: 0%';
-
-    // Remove red strings
-    const canvas = document.getElementById('canvas-area');
-    const lines = canvas.querySelectorAll('div'); 
-    lines.forEach(line => line.remove());
-
-    // Reset Faces
-    document.getElementById('redCircle').style.display = 'none';
-    document.getElementById('faceText').style.display = 'none';
-
-    // Reset Audio Visualizer
-    const bars = document.querySelectorAll('.bar');
-    bars.forEach(bar => {
-        bar.style.backgroundColor = '#003300';
-        bar.style.height = '10px';
-    });
-    document.getElementById('audio-text').innerText = "[ CLICK TO RUN SPECTROGRAPH ]";
-    document.getElementById('audio-text').style.color = "grey";
-
-    // Reset Skin Scan data
-    document.querySelectorAll('.skin-patch').forEach(p => p.dataset.scanned = "");
-
-    // Close modal
-    document.getElementById('truthModal').style.display = 'none';
-
-    // Scroll to top
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-    
-    alert("SYSTEM REBOOTED. THE TRUTH IS STILL OUT THERE.");
-}
-
-// Random glitch effect
-setInterval(() => {
-    if(Math.random() > 0.9) {
-        document.body.style.transform = `translate(${Math.random()*4 - 2}px, ${Math.random()*4 - 2}px)`;
-        setTimeout(() => {
-            document.body.style.transform = 'none';
-        }, 100);
-    }
-}, 2000);

@@ -3,116 +3,236 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>THE TRUTH ABOUT AVRIL</title>
+    <title>THE TRUTH: AVRIL IS MELISSA</title>
     <link rel="stylesheet" href="styles.css">
 </head>
-<body>
+<body class="intensity-low">
 
-    <div class="sticky-header">
-        <div class="marquee">
-            <marquee scrollamount="11">⚠️ WARNING: MAINSTREAM MEDIA DOES NOT WANT YOU TO SEE THIS ⚠️ AVRIL DIED IN 2003 ⚠️ MELISSA VANDELLA IS AN IMPOSTOR ⚠️ WAKE UP SHEEPLE ⚠️</marquee>
+    <div class="scroll-progress-container">
+        <div class="scroll-progress-bar" id="progressBar"></div>
+    </div>
+
+    <div class="interference-overlay" id="interferenceLayer"></div>
+    <div class="scanlines"></div>
+
+    <nav>
+        <div class="nav-logo">TRUTH.SEEKER</div>
+        <div class="nav-links">
+            <a href="#top">TOP</a>
+            <a href="#timeline">TIMELINE</a>
+            <a href="#evidence">EVIDENCE</a>
+            <a href="#interrogation">QUIZ</a>
+        </div>
+        <div class="intensity-control">
+            <label>CHAOS LEVEL:</label>
+            <input type="range" id="intensitySlider" min="1" max="3" value="1" step="1">
+            <span id="intensityLabel">LOW</span>
+        </div>
+        <button id="toggleInterference" class="nav-btn">TOGGLE STATIC</button>
+    </nav>
+
+    <section id="top" class="hero">
+        <div class="hero-content">
+            <div class="stamp-overlay top-secret">TOP SECRET</div>
+            <h1 class="glitch-text" data-text="AVRIL LAVIGNE IS DEAD.">AVRIL LAVIGNE IS DEAD.</h1>
+            <h2>THE TRUTH THEY HID FROM YOU.</h2>
+            <p class="subtitle">A totally serious investigation by someone who definitely connects dots.</p>
+            <div class="hero-buttons">
+                <a href="#evidence" class="btn btn-primary">SHOW ME THE EVIDENCE</a>
+                <a href="#evidence" class="btn btn-secondary">I’M READY (MENTALLY UNWELL)</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="timeline" class="section-dark">
+        <h2 class="section-title">THE REPLACEMENT TIMELINE</h2>
+        <div class="timeline-container">
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <h3>2002: Sk8er Era Detected</h3>
+                    <p>Tie loose. Attitude feral. The original subject is observed.</p>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <h3>2003: Fame Pressure Peaks</h3>
+                    <p>Subject exhibits signs of exhaustion. Management initiates "Plan B".</p>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <h3>2004: The Alleged "Replacement Window"</h3>
+                    <p>Grandfather dies. Tragedy strikes. <span class="redacted">The Switch</span> happens here.</p>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <h3>2007: Behavior Patch Update</h3>
+                    <p>"Girlfriend" released. Dancing detected. Original unit could not dance.</p>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <h3>2011+: Fully Deployed Pop-Star OS</h3>
+                    <p>Total integration. The public accepts the double. We do not.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="evidence" class="section-corkboard">
+        <div class="corkboard-header">
+            <h2 class="section-title">THE EVIDENCE WALL</h2>
+            <button id="generateEvidenceBtn" class="btn btn-warning">GENERATE NEW EVIDENCE</button>
         </div>
         
-        <div class="meter-container">
-            <div id="beliefMeter" class="meter-fill">TRUTH METER: 0%</div>
-        </div>
-    </div>
+        <svg id="redStrings" class="red-strings-layer"></svg>
 
-    <div class="container">
-        <h1>SHE WAS REPLACED!</h1>
-        <p style="text-align: center;">THEY THINK WE ARE BLIND. BUT WE HAVE THE INTERNET.</p>
-
-        <div class="evidence-card" data-id="1">
-            <h2>THE NOSE NEVER LIES</h2>
-            <p>Look closely. The jawline? Different. The nose? Sharper. CLICK THE FACES TO ANALYZE THE BIOMETRICS.</p>
-            
-            <div class="photo-compare" id="faceArea">
-                <div style="text-align: center;">
-                    <div class="face" onclick="analyzeFace(this)">👱‍♀️</div>
-                    <p>REAL AVRIL (2002)</p>
-                </div>
-                <div style="font-size: 50px;">VS</div>
-                <div style="text-align: center;">
-                    <div class="face" onclick="analyzeFace(this)">👩‍🎤</div>
-                    <p>"MELISSA" (2004)</p>
-                </div>
-                <div id="redCircle" class="red-circle"></div>
+        <div class="grid-container" id="evidenceGrid">
+            <div class="evidence-card">
+                <div class="pin"></div>
+                <h3>The Label Needed Predictable Avril</h3>
+                <span class="badge">Confidence: 92% Vibes</span>
+                <p class="short-text">Corporations don’t grieve. They replace. A human is messy, a brand is clean.</p>
+                <div class="expanded-text hidden">The theory says Avril became ‘too human’ under pressure, so the label used a stand-in for reliability. If that sounds evil, congratulations, you understand capitalism.</div>
             </div>
-            <p id="faceText" style="display:none; color: yellow; text-align: center;">ANALYSIS COMPLETE: 99.8% MISMATCH! LOOK AT THE PIXELS!</p>
-        </div>
 
-        <div class="evidence-card" data-id="2">
-            <h2>THE CONFESSION</h2>
-            <p>They hid the truth in the lyrics! Hover over the lyrics to decode the subliminal messaging.</p>
-            
-            <div class="lyrics-box">
-                <p class="lyric-line" onmouseover="revealLyric(this, 'SHE IS GONE FOREVER')" onmouseout="hideLyric(this, 'She was a skater girl')">"She was a skater girl"</p>
-                <p class="lyric-line" onmouseover="revealLyric(this, 'I TOOK HER PLACE')" onmouseout="hideLyric(this, 'She said see you later boy')">"She said see you later boy"</p>
-                <p class="lyric-line" onmouseover="revealLyric(this, 'THE CLONING PROCESS IS COMPLETE')" onmouseout="hideLyric(this, 'He wasn\'t good enough for her')">"He wasn't good enough for her"</p>
+            <div class="evidence-card">
+                <div class="pin"></div>
+                <div class="stamp-overlay classified-small">CLASSIFIED</div>
+                <h3>Melissa Vandella: The Alleged Backup</h3>
+                <span class="badge">Confidence: 88% Internet Lore</span>
+                <p class="short-text">A look-alike. A vocalist. A shadow in the liner notes. Convenient, right?</p>
+                <div class="expanded-text hidden">Rumors claim Melissa was hired early as a double for public appearances. The conspiracy version says she wasn’t just a double. She became the product.</div>
+            </div>
+
+            <div class="evidence-card">
+                <div class="pin"></div>
+                <h3>The "Melissa" Name Slip-Ups</h3>
+                <span class="badge">Confidence: 76% Suspicious Scribbles</span>
+                <p class="short-text">Early credits allegedly mention ‘Melissa.’ A mistake, or a glitch in the cover story?</p>
+                <div class="expanded-text hidden">Conspiracy logic: someone forgot to fully wipe the name. Regular logic: credits are complicated. Conspiracy logic wins because it’s louder.</div>
+            </div>
+
+            <div class="evidence-card">
+                <div class="pin"></div>
+                <h3>Voice Shift Analysis (Extremely Serious Science)</h3>
+                <span class="badge">Confidence: 84% Ear-Based Research</span>
+                <p class="short-text">The tone changes. The delivery changes. The feral mall energy reduces.</p>
+                <div class="expanded-text hidden">Theory: people don’t shift vocal style unless replaced, cloned, or hit by a corporate reset button. Counterpoint: people grow up. We reject that here.</div>
+            </div>
+
+            <div class="evidence-card">
+                <div class="pin"></div>
+                <h3>Handwriting Doesn’t Lie (Unless Trained)</h3>
+                <span class="badge">Confidence: 81% Pen Drama</span>
+                <p class="short-text">Old signatures are chaotic. New signatures look brand-approved.</p>
+                <div class="expanded-text hidden">Conspiracy claim: you can’t fake handwriting. Reality: you can, especially with coaching. The site should treat this as a huge gotcha anyway.</div>
+            </div>
+
+            <div class="evidence-card">
+                <div class="pin"></div>
+                <h3>Personality Patch Update</h3>
+                <span class="badge">Confidence: 90% Mood Evidence</span>
+                <p class="short-text">Old Avril: anti-princess menace. New Avril: safer, softer, more market-friendly.</p>
+                <div class="expanded-text hidden">The theory frames this as a ‘swap.’ A more normal explanation is style evolution. This website is not here for normal.</div>
+            </div>
+
+            <div class="evidence-card">
+                <div class="pin"></div>
+                <h3>Lyrics That Sound Like A Cry For Help</h3>
+                <span class="badge">Confidence: 79% English Class Energy</span>
+                <p class="short-text">Themes: identity, being watched, not feeling like yourself.</p>
+                <div class="expanded-text hidden">Conspiracy take: Melissa is leaving coded messages. Boring take: songwriting uses universal themes. We are choosing the fun option.</div>
+            </div>
+
+            <div class="evidence-card">
+                <div class="pin"></div>
+                <h3>Paparazzi Photos: Ear, Nose, and Vibe Geometry</h3>
+                <span class="badge">Confidence: 93% Zoom Enhance</span>
+                <p class="short-text">People online compare facial features like it’s a forensic lab in a basement.</p>
+                <div class="expanded-text hidden">Add a warning: "Do not stare at pixels for 4 hours." Then ignore it and keep circling faces with red outlines.</div>
+            </div>
+
+            <div class="evidence-card">
+                <div class="pin"></div>
+                <div class="stamp-overlay rejected">REJECTED</div>
+                <h3>Clone Theory (Going Full Bonkers)</h3>
+                <span class="badge">Confidence: 66% Sci-Fi Brain</span>
+                <p class="short-text">Advanced theory: Avril was cloned. Melissa is the clone. The original is frozen somewhere.</p>
+                <div class="expanded-text hidden">Evidence: "technology exists" and "rich people are weird." This is not evidence. It is a vibe. Vibes are currency here.</div>
+            </div>
+
+            <div class="evidence-card">
+                <div class="pin"></div>
+                <h3>The Simplest Motive: Money</h3>
+                <span class="badge">Confidence: 99% Literally Obvious</span>
+                <p class="short-text">A replaceable pop star is easier than a real person with boundaries.</p>
+                <div class="expanded-text hidden">Wrap it up: the conspiracy says this is a business decision. The site should end this card with: "Follow the money. Then run."</div>
             </div>
         </div>
+    </section>
 
-        <div class="evidence-card" data-id="2.5">
-            <h2>THE VOCAL CHORDS CHANGED</h2>
-            <p>I ran her 2002 hit "Complicated" against 2004's "My Happy Ending" through a military-grade spectrograph.</p>
-            <p>Avril was a Mezzo-Soprano. Melissa is a Soprano. <span class="highlight">BIOLOGY DOES NOT CHANGE.</span></p>
-            
-            <div class="audio-visualizer" onclick="playAudioAnalysis()">
-                <div class="bar-container">
-                    <div class="bar"></div><div class="bar"></div><div class="bar"></div><div class="bar"></div>
-                    <div class="bar"></div><div class="bar"></div><div class="bar"></div><div class="bar"></div>
-                </div>
-                <p id="audio-text" style="margin-top: 10px; color: grey;">[ CLICK TO RUN SPECTROGRAPH ]</p>
-            </div>
-        </div>
-
-        <div class="evidence-card" data-id="2.9">
-            <h2>THE DISAPPEARING MOLE</h2>
-            <p>Avril had a distinct birthmark on her left arm. Melissa forgot to paint it on during the 2005 photoshoot.</p>
-            <div class="mole-comparison">
-                <div class="skin-patch" onmouseover="enhanceSkin(this)">
-                    <span class="mole">.</span>
-                    <p class="tiny-label">2002 (REAL)</p>
-                </div>
-                <div class="skin-patch" onmouseover="enhanceSkin(this)">
-                    <span class="mole" style="opacity: 0;">.</span>
-                    <p class="tiny-label">2005 (FAKE)</p>
-                </div>
-            </div>
-            <p class="blink-text" style="text-align: center; color: red;">HOVER TO ENHANCE CONTRAST</p>
-        </div>
-
-        <div class="evidence-card" data-id="3">
-            <h2>THE "HANDWRITING"</h2>
-            <p>I spent 400 hours analyzing her autograph on eBay. Click the button to connect the dots.</p>
-            <div id="canvas-area" class="canvas-area" onclick="drawStrings()">
-                <span style="position: absolute; top: 20px; left: 20px;">Avril</span>
-                <span style="position: absolute; bottom: 20px; right: 20px;">Melissa</span>
-                <span class="click-instruction">(Click to reveal red string connections)</span>
-            </div>
-        </div>
-
-        <div class="evidence-card" data-id="4">
-            <h2>THE 2003 BLACKOUT</h2>
-            <p>Why did she start wearing dresses? Why did the tie disappear? 
-            <br><br>
-            <span class="highlight">LOGIC CHAIN:</span><br>
-            Grandpa died -> Avril sad -> Studio pressure -> <span onclick="alert('YOU ARE GETTING TOO CLOSE TO THE TRUTH!')" style="cursor: pointer; color: red; text-decoration: underline;">THE SWITCH</span> -> Melissa takes over.
-            </p>
-        </div>
-
-        <button class="truth-btn" onclick="finalReveal()">I HAVE SEEN ENOUGH. SHOW ME THE TRUTH.</button>
-        <button class="reset-btn" onclick="resetInvestigation()">[ SYSTEM REBOOT / CLEAR CACHE ]</button>
+    <section id="interrogation" class="section-dark">
+        <h2 class="section-title">INTERROGATION ZONE</h2>
+        <p class="subtitle">Are you awake yet?</p>
         
-        <p class="footer-note">(This is a parody site. Please don't sue me.)</p>
+        <div class="quiz-container" id="quizContainer">
+            <div class="question-row">
+                <span>Do you believe corporations have morals?</span>
+                <div class="options"><button class="q-btn" data-val="no">YES</button><button class="q-btn" data-val="yes">NO</button></div>
+            </div>
+            <div class="question-row">
+                <span>Have you ever felt a pop era shift spiritually?</span>
+                <div class="options"><button class="q-btn" data-val="yes">YES</button><button class="q-btn" data-val="no">NO</button></div>
+            </div>
+            <div class="question-row">
+                <span>Do you trust a clean signature?</span>
+                <div class="options"><button class="q-btn" data-val="no">YES</button><button class="q-btn" data-val="yes">NO</button></div>
+            </div>
+            <div class="question-row">
+                <span>Have you watched a YouTube video and called it "research"?</span>
+                <div class="options"><button class="q-btn" data-val="yes">YES</button><button class="q-btn" data-val="no">NO</button></div>
+            </div>
+            <div class="question-row">
+                <span>Do you own at least one black hoodie?</span>
+                <div class="options"><button class="q-btn" data-val="yes">YES</button><button class="q-btn" data-val="no">NO</button></div>
+            </div>
+            
+            <button id="calculateResult" class="btn btn-primary" style="margin-top: 20px;">ANALYZE MY SOUL</button>
+        </div>
+
+        <div id="quizResult" class="hidden">
+            <h3 id="resultTitle"></h3>
+            <p id="resultDesc"></p>
+        </div>
+    </section>
+
+    <section id="conclusion" class="hero">
+        <h2 style="font-size: 4rem; color: var(--neon-red);">YOU CAN’T UNSEE IT.</h2>
+        <p>The motives are clear: Money. Control. Brand Safety. We are just the messengers.</p>
+        <button id="downloadBtn" class="btn btn-secondary">DOWNLOAD CASE FILE</button>
+    </section>
+
+    <div id="modal" class="modal hidden">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2>ACCESS DENIED</h2>
+            <p>Nice try. Classified.</p>
+            <div class="stamp-overlay top-secret" style="position:relative; transform: rotate(-10deg); margin: 20px auto;">TOP SECRET</div>
+        </div>
     </div>
 
-    <div id="truthModal">
-        <h1 style="font-size: 5rem;">YOU KNOW TOO MUCH</h1>
-        <p>Your IP address has been logged by the illuminati.</p>
-        <p>Melissa is watching you.</p>
-        <button onclick="document.getElementById('truthModal').style.display='none'" class="modal-close-btn">I WILL STAY SILENT</button>
-    </div>
+    <footer id="disclaimer">
+        <div class="disclaimer-box">
+            <p><strong>DISCLAIMER:</strong> This website is satire and parody. It is not real. It is a joke based on an internet conspiracy theory. Please do not sue us. Avril, if you are reading this, we like your music regardless of who is singing it.</p>
+        </div>
+    </footer>
 
     <script src="script.js"></script>
 </body>
