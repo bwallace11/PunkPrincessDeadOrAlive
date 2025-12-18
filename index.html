@@ -8,17 +8,19 @@
 </head>
 <body>
 
-    <div class="marquee">
-        <marquee scrollamount="15">⚠️ WARNING: MAINSTREAM MEDIA DOES NOT WANT YOU TO SEE THIS ⚠️ AVRIL DIED IN 2003 ⚠️ MELISSA VANDELLA IS AN IMPOSTOR ⚠️ WAKE UP SHEEPLE ⚠️</marquee>
+    <div class="sticky-header">
+        <div class="marquee">
+            <marquee scrollamount="11">⚠️ WARNING: MAINSTREAM MEDIA DOES NOT WANT YOU TO SEE THIS ⚠️ AVRIL DIED IN 2003 ⚠️ MELISSA VANDELLA IS AN IMPOSTOR ⚠️ WAKE UP SHEEPLE ⚠️</marquee>
+        </div>
+        
+        <div class="meter-container">
+            <div id="beliefMeter" class="meter-fill">TRUTH METER: 0%</div>
+        </div>
     </div>
 
     <div class="container">
         <h1>SHE WAS REPLACED!</h1>
         <p style="text-align: center;">THEY THINK WE ARE BLIND. BUT WE HAVE THE INTERNET.</p>
-        
-        <div class="meter-container">
-            <div id="beliefMeter" class="meter-fill">TRUTH METER: 0%</div>
-        </div>
 
         <div class="evidence-card" data-id="1">
             <h2>THE NOSE NEVER LIES</h2>
@@ -50,6 +52,36 @@
             </div>
         </div>
 
+        <div class="evidence-card" data-id="2.5">
+            <h2>THE VOCAL CHORDS CHANGED</h2>
+            <p>I ran her 2002 hit "Complicated" against 2004's "My Happy Ending" through a military-grade spectrograph.</p>
+            <p>Avril was a Mezzo-Soprano. Melissa is a Soprano. <span class="highlight">BIOLOGY DOES NOT CHANGE.</span></p>
+            
+            <div class="audio-visualizer" onclick="playAudioAnalysis()">
+                <div class="bar-container">
+                    <div class="bar"></div><div class="bar"></div><div class="bar"></div><div class="bar"></div>
+                    <div class="bar"></div><div class="bar"></div><div class="bar"></div><div class="bar"></div>
+                </div>
+                <p id="audio-text" style="margin-top: 10px; color: grey;">[ CLICK TO RUN SPECTROGRAPH ]</p>
+            </div>
+        </div>
+
+        <div class="evidence-card" data-id="2.9">
+            <h2>THE DISAPPEARING MOLE</h2>
+            <p>Avril had a distinct birthmark on her left arm. Melissa forgot to paint it on during the 2005 photoshoot.</p>
+            <div class="mole-comparison">
+                <div class="skin-patch" onmouseover="enhanceSkin(this)">
+                    <span class="mole">.</span>
+                    <p class="tiny-label">2002 (REAL)</p>
+                </div>
+                <div class="skin-patch" onmouseover="enhanceSkin(this)">
+                    <span class="mole" style="opacity: 0;">.</span>
+                    <p class="tiny-label">2005 (FAKE)</p>
+                </div>
+            </div>
+            <p class="blink-text" style="text-align: center; color: red;">HOVER TO ENHANCE CONTRAST</p>
+        </div>
+
         <div class="evidence-card" data-id="3">
             <h2>THE "HANDWRITING"</h2>
             <p>I spent 400 hours analyzing her autograph on eBay. Click the button to connect the dots.</p>
@@ -70,11 +102,7 @@
         </div>
 
         <button class="truth-btn" onclick="finalReveal()">I HAVE SEEN ENOUGH. SHOW ME THE TRUTH.</button>
-        
         <button class="reset-btn" onclick="resetInvestigation()">[ SYSTEM REBOOT / CLEAR CACHE ]</button>
-        
-        <p class="footer-note">(This is a parody site. Please don't sue me.)</p>
-    </div>
         
         <p class="footer-note">(This is a parody site. Please don't sue me.)</p>
     </div>

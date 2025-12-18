@@ -1,4 +1,4 @@
-/* THE TRUTH ENGINE - LOGIC FILE */
+/* THE TRUTH ENGINE */
 
 let beliefLevel = 0;
 
@@ -14,20 +14,15 @@ function updateMeter(amount) {
 
 // Logic for clicking the faces (Evidence #1)
 function analyzeFace(element) {
-    // Randomly position the red circle to look like "analysis"
     const circle = document.getElementById('redCircle');
     const rect = element.getBoundingClientRect();
     const containerRect = document.getElementById('faceArea').getBoundingClientRect();
     
     circle.style.display = 'block';
-    // Calculate position relative to the container
     circle.style.left = (rect.left - containerRect.left) + 'px';
     circle.style.top = (rect.top - containerRect.top) + 'px';
-    
-    // Shake the circle using CSS animation
     circle.style.animation = 'shake 0.2s infinite';
 
-    // After 1 second, show the "result" text
     setTimeout(() => {
         document.getElementById('faceText').style.display = 'block';
         updateMeter(25);
@@ -36,7 +31,6 @@ function analyzeFace(element) {
 
 // Logic for hovering over lyrics (Evidence #2)
 function revealLyric(element, text) {
-    // Store original text if needed, though we pass it back in hideLyric
     element.dataset.original = element.innerText;
     element.innerText = text;
     element.style.color = 'red';
@@ -49,27 +43,74 @@ function hideLyric(element, originalText) {
     element.style.color = '#00ff00';
     element.style.fontFamily = 'Courier New';
     element.style.letterSpacing = 'normal';
-    // Give a small reward for checking the evidence
     updateMeter(10);
 }
+
+// Logic for Audio Visualizer (Evidence #2.5)
+function playAudioAnalysis() {
+    const bars = document.querySelectorAll('.bar');
+    const text = document.getElementById('audio-text');
+    
+    text.innerText = "ANALYZING FREQUENCY...";
+    text.style.color = "yellow";
+
+    let counter = 0;
+    // Chaotic interval
+    const interval = setInterval(() => {
+        bars.forEach(bar => {
+            const height = Math.floor(Math.random() * 90) + 10;
+            bar.style.height = height + '%';
+            bar.classList.add('active');
+        });
+        counter++;
+
+        if (counter > 20) { // Stop after ~2 seconds
+            clearInterval(interval);
+            bars.forEach(bar => {
+                bar.style.height = '10px';
+                bar.classList.remove('active');
+                bar.style.backgroundColor = 'red';
+            });
+            text.innerHTML = "RESULT: <span style='color:red; font-weight:bold;'>VOICE PRINT MISMATCH (ERROR 404)</span>";
+            updateMeter(15);
+        }
+    }, 100);
+}
+
+// Logic for Skin Enhancement (Evidence #2.9)
+function enhanceSkin(element) {
+    // Invert colors to show "X-Ray" mode
+    element.style.filter = "invert(100%) contrast(200%)";
+    
+    // If it's the second circle (the fake one), trigger a message
+    if (element.innerText.includes("FAKE")) {
+        if(!element.dataset.scanned) {
+            updateMeter(10);
+            element.dataset.scanned = "true";
+        }
+    }
+}
+
+// Add mouseout listener for Skin Enhancement
+document.querySelectorAll('.skin-patch').forEach(patch => {
+    patch.addEventListener('mouseout', () => {
+        patch.style.filter = "none";
+    });
+});
 
 // Logic for the Red String board (Evidence #3)
 function drawStrings() {
     const canvas = document.getElementById('canvas-area');
     
-    // Create 5 crazy red lines every time you click
     for(let i=0; i<5; i++) {
         let line = document.createElement('div');
         line.style.position = 'absolute';
         line.style.height = '2px';
         line.style.background = 'red';
         line.style.width = '100px';
-        
-        // Randomize position and rotation
         line.style.top = Math.random() * 100 + 'px';
         line.style.left = Math.random() * 200 + 'px';
         line.style.transform = 'rotate(' + (Math.random() * 360) + 'deg)';
-        
         canvas.appendChild(line);
     }
     updateMeter(20);
@@ -85,43 +126,49 @@ function finalReveal() {
     }
 }
 
-// RESET FUNCTION - Clears the board
+// RESET FUNCTION
 function resetInvestigation() {
-    // 1. Reset the logic variable
     beliefLevel = 0;
     
-    // 2. Reset the visual meter
+    // Reset visual meter
     const meter = document.getElementById('beliefMeter');
     meter.style.width = '0%';
     meter.innerText = 'TRUTH METER: 0%';
 
-    // 3. Remove all red strings from the canvas area
+    // Remove red strings
     const canvas = document.getElementById('canvas-area');
-    // We only remove div elements (the lines), keeping the span elements (text)
     const lines = canvas.querySelectorAll('div'); 
     lines.forEach(line => line.remove());
 
-    // 4. Reset Face Analysis visuals
+    // Reset Faces
     document.getElementById('redCircle').style.display = 'none';
     document.getElementById('faceText').style.display = 'none';
 
-    // 5. Close the modal if it's open
+    // Reset Audio Visualizer
+    const bars = document.querySelectorAll('.bar');
+    bars.forEach(bar => {
+        bar.style.backgroundColor = '#003300';
+        bar.style.height = '10px';
+    });
+    document.getElementById('audio-text').innerText = "[ CLICK TO RUN SPECTROGRAPH ]";
+    document.getElementById('audio-text').style.color = "grey";
+
+    // Reset Skin Scan data
+    document.querySelectorAll('.skin-patch').forEach(p => p.dataset.scanned = "");
+
+    // Close modal
     document.getElementById('truthModal').style.display = 'none';
 
-    // 6. Scroll back to the top smoothly
+    // Scroll to top
     window.scrollTo({ top: 0, behavior: 'smooth' });
     
     alert("SYSTEM REBOOTED. THE TRUTH IS STILL OUT THERE.");
 }
 
-// Random glitch effect on body background
+// Random glitch effect
 setInterval(() => {
-    // 10% chance to trigger a glitch every 2 seconds
     if(Math.random() > 0.9) {
-        // Jitter the screen slightly
         document.body.style.transform = `translate(${Math.random()*4 - 2}px, ${Math.random()*4 - 2}px)`;
-        
-        // Reset it back quickly
         setTimeout(() => {
             document.body.style.transform = 'none';
         }, 100);
