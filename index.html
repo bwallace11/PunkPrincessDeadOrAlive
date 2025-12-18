@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>THE TRUTH ABOUT AVRIL</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="marquee">
+        <marquee scrollamount="15">⚠️ WARNING: MAINSTREAM MEDIA DOES NOT WANT YOU TO SEE THIS ⚠️ AVRIL DIED IN 2003 ⚠️ MELISSA VANDELLA IS AN IMPOSTOR ⚠️ WAKE UP SHEEPLE ⚠️</marquee>
+    </div>
+
+    <div class="container">
+        <h1>SHE WAS REPLACED!</h1>
+        <p style="text-align: center;">THEY THINK WE ARE BLIND. BUT WE HAVE THE INTERNET.</p>
+        
+        <div class="meter-container">
+            <div id="beliefMeter" class="meter-fill">TRUTH METER: 0%</div>
+        </div>
+
+        <div class="evidence-card" data-id="1">
+            <h2>THE NOSE NEVER LIES</h2>
+            <p>Look closely. The jawline? Different. The nose? Sharper. CLICK THE FACES TO ANALYZE THE BIOMETRICS.</p>
+            
+            <div class="photo-compare" id="faceArea">
+                <div style="text-align: center;">
+                    <div class="face" onclick="analyzeFace(this)">👱‍♀️</div>
+                    <p>REAL AVRIL (2002)</p>
+                </div>
+                <div style="font-size: 50px;">VS</div>
+                <div style="text-align: center;">
+                    <div class="face" onclick="analyzeFace(this)">👩‍🎤</div>
+                    <p>"MELISSA" (2004)</p>
+                </div>
+                <div id="redCircle" class="red-circle"></div>
+            </div>
+            <p id="faceText" style="display:none; color: yellow; text-align: center;">ANALYSIS COMPLETE: 99.8% MISMATCH! LOOK AT THE PIXELS!</p>
+        </div>
+
+        <div class="evidence-card" data-id="2">
+            <h2>THE CONFESSION</h2>
+            <p>They hid the truth in the lyrics! Hover over the lyrics to decode the subliminal messaging.</p>
+            
+            <div class="lyrics-box">
+                <p class="lyric-line" onmouseover="revealLyric(this, 'SHE IS GONE FOREVER')" onmouseout="hideLyric(this, 'She was a skater girl')">"She was a skater girl"</p>
+                <p class="lyric-line" onmouseover="revealLyric(this, 'I TOOK HER PLACE')" onmouseout="hideLyric(this, 'She said see you later boy')">"She said see you later boy"</p>
+                <p class="lyric-line" onmouseover="revealLyric(this, 'THE CLONING PROCESS IS COMPLETE')" onmouseout="hideLyric(this, 'He wasn\'t good enough for her')">"He wasn't good enough for her"</p>
+            </div>
+        </div>
+
+        <div class="evidence-card" data-id="3">
+            <h2>THE "HANDWRITING"</h2>
+            <p>I spent 400 hours analyzing her autograph on eBay. Click the button to connect the dots.</p>
+            <div id="canvas-area" class="canvas-area" onclick="drawStrings()">
+                <span style="position: absolute; top: 20px; left: 20px;">Avril</span>
+                <span style="position: absolute; bottom: 20px; right: 20px;">Melissa</span>
+                <span class="click-instruction">(Click to reveal red string connections)</span>
+            </div>
+        </div>
+
+        <div class="evidence-card" data-id="4">
+            <h2>THE 2003 BLACKOUT</h2>
+            <p>Why did she start wearing dresses? Why did the tie disappear? 
+            <br><br>
+            <span class="highlight">LOGIC CHAIN:</span><br>
+            Grandpa died -> Avril sad -> Studio pressure -> <span onclick="alert('YOU ARE GETTING TOO CLOSE TO THE TRUTH!')" style="cursor: pointer; color: red; text-decoration: underline;">THE SWITCH</span> -> Melissa takes over.
+            </p>
+        </div>
+
+        <button class="truth-btn" onclick="finalReveal()">I HAVE SEEN ENOUGH. SHOW ME THE TRUTH.</button>
+        
+        <button class="reset-btn" onclick="resetInvestigation()">[ SYSTEM REBOOT / CLEAR CACHE ]</button>
+        
+        <p class="footer-note">(This is a parody site. Please don't sue me.)</p>
+    </div>
+        
+        <p class="footer-note">(This is a parody site. Please don't sue me.)</p>
+    </div>
+
+    <div id="truthModal">
+        <h1 style="font-size: 5rem;">YOU KNOW TOO MUCH</h1>
+        <p>Your IP address has been logged by the illuminati.</p>
+        <p>Melissa is watching you.</p>
+        <button onclick="document.getElementById('truthModal').style.display='none'" class="modal-close-btn">I WILL STAY SILENT</button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

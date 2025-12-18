@@ -1,0 +1,223 @@
+/* THE AESTHETIC: CHAOS & PARANOIA */
+body {
+    background-color: #000000;
+    color: #00ff00;
+    font-family: 'Courier New', Courier, monospace;
+    overflow-x: hidden;
+    margin: 0;
+    cursor: crosshair;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    border-left: 2px dashed red;
+    border-right: 2px dashed red;
+}
+
+h1, h2, h3 {
+    text-transform: uppercase;
+    text-align: center;
+}
+
+h1 {
+    font-size: 3rem;
+    color: red;
+    text-shadow: 2px 2px 0px white;
+    animation: shake 0.5s infinite;
+}
+
+.highlight {
+    background-color: yellow;
+    color: black;
+    font-weight: bold;
+    padding: 2px;
+}
+
+/* EVIDENCE SECTIONS */
+.evidence-card {
+    border: 1px solid #00ff00;
+    margin: 30px 0;
+    padding: 20px;
+    background: #0a0a0a;
+    position: relative;
+    box-shadow: 0 0 10px #00ff00;
+}
+
+.evidence-card::before {
+    content: "EVIDENCE #" attr(data-id);
+    position: absolute;
+    top: -15px;
+    left: 10px;
+    background: red;
+    color: white;
+    padding: 5px;
+    transform: rotate(-5deg);
+}
+
+/* INTERACTIVE ELEMENTS */
+.photo-compare {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.face {
+    font-size: 100px;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.face:hover {
+    transform: scale(1.2);
+}
+
+.red-circle {
+    border: 3px solid red;
+    border-radius: 50%;
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    display: none;
+    pointer-events: none;
+}
+
+.lyrics-box {
+    font-size: 1.2rem;
+    text-align: center;
+    line-height: 2;
+}
+
+.lyric-line {
+    cursor: help;
+    border-bottom: 1px dotted red;
+}
+
+.canvas-area {
+    border: 1px solid white; 
+    height: 150px; 
+    position: relative; 
+    cursor: pointer;
+}
+
+.click-instruction {
+    position: absolute; 
+    top: 50%; 
+    left: 50%; 
+    transform: translate(-50%, -50%); 
+    color: grey;
+}
+
+.footer-note {
+    font-size: 10px; 
+    color: grey; 
+    text-align: center; 
+    margin-top: 50px;
+}
+
+button.truth-btn {
+    background: red;
+    color: white;
+    border: 3px solid white;
+    font-size: 1.5rem;
+    padding: 15px;
+    width: 100%;
+    font-family: 'Courier New', Courier, monospace;
+    cursor: pointer;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+button.truth-btn:hover {
+    background: white;
+    color: red;
+}
+
+/* ANIMATIONS */
+@keyframes shake {
+    0% { transform: translate(1px, 1px) rotate(0deg); }
+    10% { transform: translate(-1px, -2px) rotate(-1deg); }
+    20% { transform: translate(-3px, 0px) rotate(1deg); }
+    30% { transform: translate(3px, 2px) rotate(0deg); }
+    40% { transform: translate(1px, -1px) rotate(1deg); }
+    50% { transform: translate(-1px, 2px) rotate(-1deg); }
+    60% { transform: translate(-3px, 1px) rotate(0deg); }
+    70% { transform: translate(3px, 1px) rotate(-1deg); }
+    80% { transform: translate(-1px, -1px) rotate(1deg); }
+    90% { transform: translate(1px, 2px) rotate(0deg); }
+    100% { transform: translate(1px, -2px) rotate(-1deg); }
+}
+
+/* MODAL POPUP */
+#truthModal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 0, 0, 0.9);
+    z-index: 999;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    color: white;
+    text-align: center;
+}
+
+.modal-close-btn {
+    background: black; 
+    color: white; 
+    padding: 10px; 
+    border: 1px solid white; 
+    cursor: pointer;
+}
+
+.meter-container {
+    width: 100%;
+    background-color: #333;
+    margin: 20px 0;
+}
+
+.meter-fill {
+    width: 0%;
+    height: 30px;
+    background-color: red;
+    text-align: center;
+    line-height: 30px;
+    color: white;
+    transition: width 0.5s;
+}
+
+.marquee {
+    width: 100%;
+    background: yellow;
+    color: black;
+    font-weight: bold;
+    padding: 5px 0;
+}
+/* ... add this to the bottom of style.css ... */
+
+.reset-btn {
+    background: transparent;
+    color: #00ff00;
+    border: 1px dashed #00ff00;
+    margin-top: 15px;
+    padding: 10px;
+    width: 100%;
+    font-family: 'Courier New', Courier, monospace;
+    cursor: pointer;
+    text-transform: uppercase;
+    font-size: 1rem;
+    opacity: 0.7;
+    transition: all 0.3s;
+}
+
+.reset-btn:hover {
+    background: #00ff00;
+    color: black;
+    opacity: 1;
+    box-shadow: 0 0 15px #00ff00;
+}
