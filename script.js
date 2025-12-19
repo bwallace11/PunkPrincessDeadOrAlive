@@ -6,7 +6,7 @@ const slides = [
         title: "THEY DO NOT WANT YOU TO KNOW",
         content: `
             <div class="text-center space-y-6">
-                <div class="emoji-large animate-pulse"><img src="images/eyee.gif" alt="all seeing eye" style="width: 35px; height: 35px;"></div>
+                <div class="emoji-large animate-pulse" style="display: flex; justify-content: center; align-items: center;><img src="images/eyee.gif" alt="all seeing eye" style="width: 150px; height: 150px;"></div>
                 <h2 class="text-5xl font-bold text-red-600 -rotate-1">
                     THE AVRIL LAVIGNE REPLACEMENT CONSPIRACY
                 </h2>
