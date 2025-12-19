@@ -199,8 +199,8 @@ input:checked + .slider:before { transform: translateX(20px); }
     background-position: center;
     background-repeat: no-repeat;
     position: relative;
-    /* Fallback in case image breaks */
     background-color: #2a221b; 
+    background-image: url('https://upload.wikimedia.org/wikipedia/commons/2/2e/Cork_board_texture.jpg');
 }
 .corkboard-slide::before {
     content: "";
@@ -397,7 +397,7 @@ li { margin-bottom: 10px; }
     z-index: 3;
 }
 
-/* NEW: Polaroid Photos on Corkboard */
+/* POLAROID PHOTOS */
 .polaroid {
     position: absolute;
     background: #fff;
@@ -410,18 +410,19 @@ li { margin-bottom: 10px; }
     font-size: 0.8rem;
     z-index: 2;
     cursor: grab;
+    /* CSS handles initial rotation. JS should attempt to preserve it or simple drag */
     transform: rotate(4deg);
 }
 .polaroid img { width: 100%; height: auto; border: 1px solid #ddd; margin-bottom: 5px; }
 .polaroid:active { cursor: grabbing; }
 
-/* Better Positions for Slide 10 items to prevent bunching */
+/* Item Positions (Slide 10) */
 .n1 { top: 20%; left: 20%; transform: rotate(-5deg); }
 .n2 { top: 20%; right: 20%; transform: rotate(3deg); }
 .n3 { bottom: 20%; left: 20%; transform: rotate(2deg); }
 .n4 { bottom: 20%; right: 20%; transform: rotate(-3deg); }
-.p1 { top: 40%; left: 10%; transform: rotate(-8deg); } /* Photo left */
-.p2 { top: 40%; right: 10%; transform: rotate(5deg); } /* Photo right */
+.p1 { top: 40%; left: 10%; transform: rotate(-8deg); } 
+.p2 { top: 40%; right: 10%; transform: rotate(5deg); }
 .center-note { top: 50%; left: 50%; transform: translate(-50%, -50%); }
 
 /* OVERVIEW GRID */

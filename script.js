@@ -43,7 +43,7 @@ document.addEventListener('DOMContentLoaded', () => {
         createDots();
         updateUI();
         createOverviewThumbnails();
-        setupDragAndDrop(); // Init draggable corkboard items
+        setupDragAndDrop(); 
         
         // Corkboard Toggle
         corkboardSwitch.addEventListener('change', (e) => {
@@ -86,7 +86,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // NAVIGATION LOGIC
     function updateUI() {
-        // Update Slides
         slides.forEach(slide => {
             slide.classList.remove('active');
             if(parseInt(slide.dataset.slide) === currentSlide) {
@@ -94,14 +93,11 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
 
-        // Update Progress
         const pct = ((currentSlide - 1) / (totalSlides - 1)) * 100;
         progressBar.style.width = `${pct}%`;
 
-        // Update Counter
         slideCounter.textContent = `Slide ${currentSlide} / ${totalSlides}`;
 
-        // Update Dots
         document.querySelectorAll('.dot').forEach((dot, idx) => {
             dot.classList.toggle('active', idx + 1 === currentSlide);
         });
@@ -122,7 +118,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function goToSlide(n) {
-        currentSlide = n;
+        currentSlide = parseInt(n);
         updateUI();
         
         // Force close overview
@@ -139,7 +135,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    // Generate useful thumbnails with titles
     function createOverviewThumbnails() {
         slides.forEach((slide, index) => {
             const i = index + 1;
@@ -155,29 +150,36 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Drag and Drop for Corkboard Items
+    // DRAG AND DROP (Simple implementation avoiding DOMMatrix complexity)
     function setupDragAndDrop() {
         const draggables = document.querySelectorAll('.draggable');
         let activeItem = null;
-        let initialX, initialY, currentX, currentY, xOffset = 0, yOffset = 0;
+        let startX, startY, initialLeft, initialTop;
 
         draggables.forEach(item => {
             item.addEventListener('mousedown', dragStart);
 
             function dragStart(e) {
-                // Get current transform if any to resume offset
-                const style = window.getComputedStyle(item);
-                const matrix = new WebKitCSSMatrix(style.transform);
-                xOffset = matrix.m41;
-                yOffset = matrix.m42;
+                // Prevent selecting text while dragging
+                e.preventDefault(); 
+                
+                activeItem = item;
+                
+                // Get mouse start pos
+                startX = e.clientX;
+                startY = e.clientY;
 
-                initialX = e.clientX - xOffset;
-                initialY = e.clientY - yOffset;
+                // Get current element pos relative to parent (using offsetLeft/Top)
+                // This resets transform to leverage absolute positioning logic if mixed
+                const rect = activeItem.getBoundingClientRect();
+                const parentRect = activeItem.parentElement.getBoundingClientRect();
+                
+                // Calculate position relative to the container
+                initialLeft = rect.left - parentRect.left;
+                initialTop = rect.top - parentRect.top;
 
-                if (e.target === item || item.contains(e.target)) {
-                    activeItem = item;
-                    activeItem.style.zIndex = 100; // bring to front
-                }
+                // Bring to front
+                activeItem.style.zIndex = 100;
             }
         });
 
@@ -187,23 +189,35 @@ document.addEventListener('DOMContentLoaded', () => {
         function drag(e) {
             if (activeItem) {
                 e.preventDefault();
-                currentX = e.clientX - initialX;
-                currentY = e.clientY - initialY;
-                setTranslate(currentX, currentY, activeItem);
+                
+                // Calculate delta
+                const dx = e.clientX - startX;
+                const dy = e.clientY - startY;
+
+                // We apply transform: translate. 
+                // Note: This temporarily ignores the 'rotation' from CSS unless we preserve it.
+                // For simplicity in this vanilla JS version, we allow it to straighten out while dragging
+                // or we could append the rotation string if we parsed it. 
+                // Let's use simple left/top manipulation for stability in this specific use case
+                // since we have mixed transforms (rotate) in CSS.
+                
+                // Actually, updating left/top directly is safer than conflicting with CSS transforms
+                // But we need to clear the CSS 'top/bottom/left/right' if they are set by class.
+                // Instead, let's use translate3d and just accept the rotation loss for the "picked up" look.
+                activeItem.style.transform = `translate3d(${dx}px, ${dy}px, 0) scale(1.1)`;
             }
         }
 
         function dragEnd(e) {
             if(activeItem) {
-                initialX = currentX;
-                initialY = currentY;
-                activeItem.style.zIndex = ""; // reset z
+                // "Drop" it - it snaps back to its CSS position + the transform we just applied?
+                // No, we need to commit the move. 
+                // Since this is a simple toy, let's just leave the transform applied.
+                // It will stay where dropped relative to original pos.
+                activeItem.style.zIndex = ""; 
+                activeItem.style.transform = activeItem.style.transform.replace('scale(1.1)', 'scale(1)');
                 activeItem = null;
             }
-        }
-
-        function setTranslate(xPos, yPos, el) {
-            el.style.transform = `translate3d(${xPos}px, ${yPos}px, 0)`;
         }
     }
 
