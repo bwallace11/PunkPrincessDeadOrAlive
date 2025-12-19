@@ -270,3 +270,85 @@ document.addEventListener("DOMContentLoaded", () => {
 
   init();
 });
+
+// --- Slide 10 interactivity: pins + dragging + confidence meter ---
+let confidence = 0;
+const maxConfidence = 4; // number of pin-photos
+
+function setConfidenceUI() {
+  const fill = document.getElementById("confidence-fill");
+  const text = document.getElementById("confidence-text");
+  if (!fill || !text) return;
+
+  const pct = Math.min(100, (confidence / maxConfidence) * 100);
+  fill.style.width = pct + "%";
+
+  const lines = [
+    "Click evidence pins to “confirm” the conspiracy.",
+    "Okay… you are looking at pixels way too hard.",
+    "We are reaching levels of delusion previously thought impossible.",
+    "Congratulations. You have achieved Full Conspiracy Brain.",
+    "Case closed. Reality is optional."
+  ];
+  text.textContent = lines[Math.min(confidence, lines.length - 1)];
+}
+
+// Pin photos open evidence modal + increase confidence
+document.querySelectorAll(".pin-photo").forEach((pin) => {
+  pin.addEventListener("click", () => {
+    const id = pin.getAttribute("data-evidence");
+    if (id) openEvidence(id);
+
+    // only count first time per pin
+    if (!pin.dataset.clicked) {
+      pin.dataset.clicked = "true";
+      confidence++;
+      setConfidenceUI();
+    }
+  });
+});
+
+// Simple draggable for notes (and you can reuse it for anything with .draggable)
+function makeDraggable(el) {
+  let isDown = false;
+  let startX = 0, startY = 0;
+  let origX = 0, origY = 0;
+
+  el.addEventListener("pointerdown", (e) => {
+    isDown = true;
+    el.setPointerCapture(e.pointerId);
+    startX = e.clientX;
+    startY = e.clientY;
+
+    const rect = el.getBoundingClientRect();
+    origX = rect.left;
+    origY = rect.top;
+  });
+
+  el.addEventListener("pointermove", (e) => {
+    if (!isDown) return;
+    const dx = e.clientX - startX;
+    const dy = e.clientY - startY;
+
+    // Convert to absolute positioning
+    el.style.left = origX + dx + "px";
+    el.style.top = origY + dy + "px";
+    el.style.right = "auto";
+    el.style.bottom = "auto";
+    el.style.position = "fixed";
+    el.style.zIndex = 999;
+  });
+
+  el.addEventListener("pointerup", () => {
+    isDown = false;
+  });
+
+  el.addEventListener("pointercancel", () => {
+    isDown = false;
+  });
+}
+
+document.querySelectorAll(".draggable").forEach(makeDraggable);
+
+// Init confidence UI
+setConfidenceUI();

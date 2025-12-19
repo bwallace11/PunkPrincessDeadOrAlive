@@ -469,3 +469,97 @@ body.corkboard-on .slide-image {
 @media (prefers-reduced-motion: reduce) {
   .slide, .progress-bar, #zoom-target-container { transition: none !important; }
 }
+
+/* Slide 10 pinned photos */
+.pin-photo {
+  position: absolute;
+  width: 220px;
+  background: #fff;
+  border: 10px solid #fff;
+  box-shadow: 3px 3px 10px rgba(0,0,0,0.55);
+  cursor: pointer;
+  padding: 0;
+  text-align: left;
+}
+
+.pin-photo img {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+  display: block;
+}
+
+.pin-photo::before {
+  content: "";
+  position: absolute;
+  top: -12px;
+  left: 50%;
+  width: 16px;
+  height: 16px;
+  background: red;
+  border-radius: 50%;
+  transform: translateX(-50%);
+  box-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+}
+
+.pin-label {
+  display: block;
+  padding: 8px 10px;
+  font-family: var(--font-head);
+  font-size: 0.85rem;
+  color: #111;
+}
+
+/* Positions for photos */
+.p1 { top: 22%; left: 8%; transform: rotate(-3deg); }
+.p2 { top: 22%; right: 8%; transform: rotate(3deg); }
+.p3 { bottom: 18%; left: 10%; transform: rotate(2deg); }
+.p4 { bottom: 18%; right: 10%; transform: rotate(-2deg); }
+
+/* Simple HUD */
+.case-hud {
+  position: absolute;
+  bottom: 22px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 420px;
+  background: rgba(0,0,0,0.55);
+  border: 1px solid rgba(255,255,255,0.2);
+  padding: 12px 14px;
+  z-index: 3;
+  border-radius: 8px;
+}
+
+.hud-title {
+  font-family: var(--font-head);
+  font-size: 0.85rem;
+  letter-spacing: 2px;
+  color: #fff;
+  margin-bottom: 8px;
+}
+
+.hud-bar {
+  width: 100%;
+  height: 10px;
+  background: rgba(255,255,255,0.15);
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+.hud-fill {
+  height: 100%;
+  width: 0%;
+  background: var(--accent-red);
+  transition: width 0.25s ease;
+}
+
+.hud-sub {
+  margin-top: 8px;
+  font-size: 0.85rem;
+  color: #ddd;
+  font-family: var(--font-head);
+}
+
+/* Drag vibe */
+.draggable { cursor: grab; }
+.draggable:active { cursor: grabbing; }

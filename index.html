@@ -247,28 +247,73 @@
       </div>
     </section>
 
-    <section
-      class="slide corkboard-slide"
-      data-slide="10"
-      style="background-image: url('https://upload.wikimedia.org/wikipedia/commons/2/2e/Cork_board_texture.jpg');"
-    >
-      <div class="corkboard-visual">
-        <svg class="string-layer">
-          <line x1="20%" y1="30%" x2="50%" y2="50%" />
-          <line x1="80%" y1="30%" x2="50%" y2="50%" />
-          <line x1="20%" y1="70%" x2="50%" y2="50%" />
-          <line x1="80%" y1="70%" x2="50%" y2="50%" />
-          <line x1="50%" y1="20%" x2="50%" y2="50%" />
-          <line x1="50%" y1="80%" x2="50%" y2="50%" />
-        </svg>
+   <section
+  class="slide corkboard-slide"
+  data-slide="10"
+  style="background-image: url('https://upload.wikimedia.org/wikipedia/commons/2/2e/Cork_board_texture.jpg');"
+>
+  <div class="corkboard-visual">
+    <svg class="string-layer" viewBox="0 0 100 100" preserveAspectRatio="none">
+      <line x1="15" y1="25" x2="50" y2="50" />
+      <line x1="85" y1="25" x2="50" y2="50" />
+      <line x1="15" y1="75" x2="50" y2="50" />
+      <line x1="85" y1="75" x2="50" y2="50" />
+      <line x1="50" y1="15" x2="50" y2="50" />
+      <line x1="50" y1="85" x2="50" y2="50" />
+    </svg>
 
-        <div class="pin-note n1">Money</div>
-        <div class="pin-note n2">Brand Control</div>
-        <div class="pin-note n3">Predictability</div>
-        <div class="pin-note n4">Brand Safety</div>
-        <div class="pin-note center-note">PIXELS = PROOF</div>
+    <!-- Center thesis -->
+    <div class="pin-note center-note draggable">PIXELS = PROOF</div>
+
+    <!-- Motive notes -->
+    <div class="pin-note n1 draggable">Predictability</div>
+    <div class="pin-note n2 draggable">Brand Safety</div>
+    <div class="pin-note n3 draggable">Money</div>
+    <div class="pin-note n4 draggable">Brand Control</div>
+
+    <!-- NEW: pinned evidence photos -->
+    <button class="pin-photo p1 zoom-wrapper zoom-trigger" type="button"
+      data-evidence="e1"
+      aria-label="Open photoshoot evidence">
+      <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Avril%20Lavigne%20in%20Amsterdam,%202008%20X%20(crop).jpg?width=600"
+           alt="Avril photo (2008) for comparison">
+      <span class="pin-label">ALLEGED “BEFORE”</span>
+    </button>
+
+    <button class="pin-photo p2 zoom-wrapper zoom-trigger" type="button"
+      data-evidence="e3"
+      aria-label="Open forum evidence">
+      <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Avril%20Lavigne%202013.jpg?width=600"
+           alt="Avril photo (2013) for comparison">
+      <span class="pin-label">ALLEGED “AFTER”</span>
+    </button>
+
+    <button class="pin-photo p3 zoom-wrapper zoom-trigger" type="button"
+      data-evidence="e7"
+      aria-label="Open signature evidence">
+      <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Avril%20Lavigne%27s%20signature.svg?width=600"
+           alt="Avril signature">
+      <span class="pin-label">SIGNATURE FILE</span>
+    </button>
+
+    <button class="pin-photo p4 zoom-wrapper zoom-trigger" type="button"
+      data-evidence="e4"
+      aria-label="Open waveform evidence">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/3/3a/Waveform_example.png"
+           alt="Waveform example">
+      <span class="pin-label">VOICE “SCIENCE”</span>
+    </button>
+
+    <!-- NEW: tiny status HUD -->
+    <div class="case-hud">
+      <div class="hud-title">CASE CONFIDENCE</div>
+      <div class="hud-bar">
+        <div class="hud-fill" id="confidence-fill"></div>
       </div>
-    </section>
+      <div class="hud-sub" id="confidence-text">Click evidence pins to “confirm” the conspiracy.</div>
+    </div>
+  </div>
+</section>
 
     <section class="slide" data-slide="11">
       <div class="content-center">
