@@ -53,6 +53,28 @@ body {
     background: linear-gradient(to bottom, rgba(0,0,0,0.8), transparent);
 }
 
+.left-controls {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.ui-btn {
+    background: transparent;
+    border: 1px solid var(--accent-red);
+    color: var(--accent-red);
+    font-family: var(--font-head);
+    padding: 5px 10px;
+    cursor: pointer;
+    font-size: 0.8rem;
+    transition: all 0.2s;
+}
+
+.ui-btn:hover {
+    background: var(--accent-red);
+    color: #000;
+}
+
 .slide-counter {
     font-family: var(--font-head);
     font-weight: bold;

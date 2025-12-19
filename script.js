@@ -28,6 +28,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const body = document.body;
     const blackoutOverlay = document.getElementById('blackout-overlay');
     const overviewGrid = document.getElementById('overview-grid');
+    const blackoutBtn = document.getElementById('blackout-btn');
     
     // Modals
     const evidenceModal = document.getElementById('evidence-modal');
@@ -57,6 +58,12 @@ document.addEventListener('DOMContentLoaded', () => {
         document.getElementById('next-btn').addEventListener('click', nextSlide);
         document.getElementById('prev-btn').addEventListener('click', prevSlide);
         document.getElementById('restart-btn').addEventListener('click', () => goToSlide(1));
+
+        // Blackout Button Click
+        blackoutBtn.addEventListener('click', toggleBlackout);
+        
+        // Click overlay to close blackout
+        blackoutOverlay.addEventListener('click', toggleBlackout);
 
         // Keyboard Nav
         document.addEventListener('keydown', handleKeydown);

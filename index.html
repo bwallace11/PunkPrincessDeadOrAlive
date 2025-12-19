@@ -10,20 +10,25 @@
 
     <div id="noise-overlay"></div>
     <div id="blackout-overlay" class="hidden">
-        <div class="blackout-msg">Blackout Mode active. Press <strong>B</strong> to return.</div>
+        <div class="blackout-msg">Blackout Mode active. Click or press <strong>B</strong> to return.</div>
     </div>
     
     <div class="top-ui">
-        <div class="corkboard-toggle">
-            <label class="switch">
-                <input type="checkbox" id="corkboard-switch">
-                <span class="slider round"></span>
-            </label>
-            <span>CORKBOARD MODE</span>
+        <div class="left-controls">
+            <div class="corkboard-toggle">
+                <label class="switch">
+                    <input type="checkbox" id="corkboard-switch">
+                    <span class="slider round"></span>
+                </label>
+                <span>CORKBOARD MODE</span>
+            </div>
+            <button id="blackout-btn" class="ui-btn">BLACKOUT</button>
         </div>
+
         <div class="progress-container">
             <div class="progress-bar" id="progress-bar"></div>
         </div>
+        
         <div class="slide-counter" id="slide-counter">Slide 1 / 12</div>
     </div>
 
