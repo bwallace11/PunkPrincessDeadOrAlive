@@ -123,7 +123,10 @@ document.addEventListener('DOMContentLoaded', () => {
     function goToSlide(n) {
         currentSlide = n;
         updateUI();
-        if(isOverview) toggleOverview();
+        
+        // FIX: Force close overview grid when a slide is selected
+        isOverview = false;
+        overviewGrid.classList.add('hidden');
     }
 
     function createDots() {
@@ -152,6 +155,7 @@ document.addEventListener('DOMContentLoaded', () => {
         
         if (e.key === 'Escape') {
             closeAllModals();
+            if(isOverview) toggleOverview(); // also close overview on Esc
             return;
         }
 

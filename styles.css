@@ -59,6 +59,12 @@ body {
     gap: 20px;
 }
 
+.hint-text {
+    font-size: 0.8rem;
+    color: #888;
+    font-family: var(--font-head);
+}
+
 .slide-counter {
     font-family: var(--font-head);
     font-weight: bold;
@@ -455,7 +461,7 @@ li { margin-bottom: 10px; }
 .zoom-controls { display: flex; gap: 20px; align-items: center; }
 #enhance-status { margin-top: 10px; color: var(--accent-red); font-family: var(--font-head); height: 20px;}
 
-/* OVERVIEW */
+/* OVERVIEW GRID */
 #overview-grid {
     position: fixed;
     top: 60px; left: 0; width: 100%; height: calc(100% - 60px);
@@ -466,7 +472,15 @@ li { margin-bottom: 10px; }
     gap: 20px;
     padding: 40px;
     overflow-y: auto;
+    transition: opacity 0.3s;
 }
+
+/* Make sure hidden actually hides it from clicks */
+#overview-grid.hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+
 .thumb {
     border: 1px solid #555;
     height: 100px;
@@ -476,6 +490,7 @@ li { margin-bottom: 10px; }
     cursor: pointer;
     color: #fff;
     font-family: var(--font-head);
+    background: #111;
 }
 .thumb:hover { border-color: var(--accent-red); color: var(--accent-red); }
 
