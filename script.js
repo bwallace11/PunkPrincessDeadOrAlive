@@ -237,6 +237,10 @@ document.addEventListener('DOMContentLoaded', () => {
         zoomModal.classList.add('hidden');
     }
 
+
+    // Run Init
+    init();
+});
 const evidenceData = {
   e1: {
     title: "The Photoshoot",
@@ -331,8 +335,4 @@ document.querySelectorAll(".close-modal").forEach(btn => {
   btn.addEventListener("click", () => {
     document.querySelectorAll(".modal").forEach(m => m.classList.add("hidden"));
   });
-});
-
-    // Run Init
-    init();
 });
