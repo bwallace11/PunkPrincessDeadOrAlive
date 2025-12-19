@@ -3,7 +3,6 @@ document.addEventListener('DOMContentLoaded', () => {
     let currentSlide = 1;
     const totalSlides = 12;
     let isCorkboardMode = false;
-    let isBlackout = false;
     let isOverview = false;
 
     // EVIDENCE DATA
@@ -26,9 +25,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const dotsContainer = document.getElementById('dots-container');
     const corkboardSwitch = document.getElementById('corkboard-switch');
     const body = document.body;
-    const blackoutOverlay = document.getElementById('blackout-overlay');
     const overviewGrid = document.getElementById('overview-grid');
-    const blackoutBtn = document.getElementById('blackout-btn');
     
     // Modals
     const evidenceModal = document.getElementById('evidence-modal');
@@ -58,12 +55,6 @@ document.addEventListener('DOMContentLoaded', () => {
         document.getElementById('next-btn').addEventListener('click', nextSlide);
         document.getElementById('prev-btn').addEventListener('click', prevSlide);
         document.getElementById('restart-btn').addEventListener('click', () => goToSlide(1));
-
-        // Blackout Button Click
-        blackoutBtn.addEventListener('click', toggleBlackout);
-        
-        // Click overlay to close blackout
-        blackoutOverlay.addEventListener('click', toggleBlackout);
 
         // Keyboard Nav
         document.addEventListener('keydown', handleKeydown);
@@ -174,10 +165,6 @@ document.addEventListener('DOMContentLoaded', () => {
             case 'ArrowLeft':
                 prevSlide();
                 break;
-            case 'b':
-            case 'B':
-                toggleBlackout();
-                break;
             case 'o':
             case 'O':
                 toggleOverview();
@@ -186,12 +173,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // FEATURES
-    function toggleBlackout() {
-        isBlackout = !isBlackout;
-        if(isBlackout) blackoutOverlay.classList.remove('hidden');
-        else blackoutOverlay.classList.add('hidden');
-    }
-
     function toggleOverview() {
         isOverview = !isOverview;
         if(isOverview) overviewGrid.classList.remove('hidden');

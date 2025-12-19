@@ -59,22 +59,6 @@ body {
     gap: 20px;
 }
 
-.ui-btn {
-    background: transparent;
-    border: 1px solid var(--accent-red);
-    color: var(--accent-red);
-    font-family: var(--font-head);
-    padding: 5px 10px;
-    cursor: pointer;
-    font-size: 0.8rem;
-    transition: all 0.2s;
-}
-
-.ui-btn:hover {
-    background: var(--accent-red);
-    color: #000;
-}
-
 .slide-counter {
     font-family: var(--font-head);
     font-weight: bold;
@@ -471,18 +455,7 @@ li { margin-bottom: 10px; }
 .zoom-controls { display: flex; gap: 20px; align-items: center; }
 #enhance-status { margin-top: 10px; color: var(--accent-red); font-family: var(--font-head); height: 20px;}
 
-/* BLACKOUT & OVERVIEW */
-#blackout-overlay {
-    position: fixed;
-    top: 0; left: 0; width: 100%; height: 100%;
-    background: #000;
-    z-index: 2000;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-.blackout-msg { color: #333; font-family: var(--font-head); }
-
+/* OVERVIEW */
 #overview-grid {
     position: fixed;
     top: 60px; left: 0; width: 100%; height: calc(100% - 60px);
