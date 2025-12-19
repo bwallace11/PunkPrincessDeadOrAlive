@@ -1,4 +1,5 @@
 let currentSlide = 0;
+let prevButton, nextButton, indicators;
 
 const slides = [
     {
@@ -348,92 +349,112 @@ const slides = [
         `
     }
 ];
+
 function renderSlide() {
-const slideTitle = document.getElementById('slide-title');
-const slideCounter = document.getElementById('slide-counter');
-const slideContent = document.getElementById('slide-content');
-const prevButton = document.getElementById('prev-button');
-const nextButton = document.getElementById('next-button');
-const indicators = document.querySelectorAll('.indicator');
-slideTitle.textContent = slides[currentSlide].title;
-slideCounter.textContent = `Slide ${currentSlide + 1} of ${slides.length}`;
-slideContent.innerHTML = slides[currentSlide].content;
+    const slideTitle = document.getElementById('slide-title');
+    const slideCounter = document.getElementById('slide-counter');
+    const slideContent = document.getElementById('slide-content');
 
-prevButton.disabled = currentSlide === 0;
-nextButton.disabled = currentSlide === slides.length - 1;
+    slideTitle.textContent = slides[currentSlide].title;
+    slideCounter.textContent = `Slide ${currentSlide + 1} of ${slides.length}`;
+    slideContent.innerHTML = slides[currentSlide].content;
 
-indicators.forEach((indicator, index) => {
-    if (index === currentSlide) {
-        indicator.classList.add('active');
-    } else {
-        indicator.classList.remove('active');
-    }
-});
+    prevButton.disabled = currentSlide === 0;
+    nextButton.disabled = currentSlide === slides.length - 1;
+
+    indicators.forEach((indicator, index) => {
+        if (index === currentSlide) {
+            indicator.classList.add('active');
+        } else {
+            indicator.classList.remove('active');
+        }
+    });
 }
+
 function nextSlide() {
-if (currentSlide < slides.length - 1) {
-currentSlide++;
-renderSlide();
+    if (currentSlide < slides.length - 1) {
+        currentSlide++;
+        renderSlide();
+    }
 }
-}
+
 function prevSlide() {
-if (currentSlide > 0) {
-currentSlide--;
-renderSlide();
+    if (currentSlide > 0) {
+        currentSlide--;
+        renderSlide();
+    }
 }
-}
+
 function goToSlide(index) {
-currentSlide = index;
-renderSlide();
+    currentSlide = index;
+    renderSlide();
 }
+
 function init() {
-const root = document.getElementById('root');
-root.innerHTML = `
-    <div class="container">
-        <div class="header">
-            <div class="header-icons">
-                <i data-lucide="alert-triangle" class="text-red-500" style="width: 48px; height: 48px;"></i>
-                <h1 class="classified-title">CLASSIFIED</h1>
-                <i data-lucide="alert-triangle" class="text-red-500" style="width: 48px; height: 48px;"></i>
-            </div>
-            <p class="subtitle">TOP SECRET INVESTIGATION</p>
-        </div>
-
-        <div class="slide-container">
-            <div class="slide-header">
-                <h2 class="slide-title" id="slide-title"></h2>
-                <p class="slide-counter" id="slide-counter"></p>
+    const root = document.getElementById('root');
+    
+    root.innerHTML = `
+        <div class="container">
+            <div class="header">
+                <div class="header-icons">
+                    <i data-lucide="alert-triangle" class="text-red-500" style="width: 48px; height: 48px;"></i>
+                    <h1 class="classified-title">CLASSIFIED</h1>
+                    <i data-lucide="alert-triangle" class="text-red-500" style="width: 48px; height: 48px;"></i>
+                </div>
+                <p class="subtitle">TOP SECRET INVESTIGATION</p>
             </div>
 
-            <div class="slide-content" id="slide-content"></div>
-
-            <div class="navigation">
-                <button class="nav-button" id="prev-button" onclick="prevSlide()">
-                    <i data-lucide="chevron-left" style="width: 24px; height: 24px;"></i>
-                    PREVIOUS
-                </button>
-
-                <div class="slide-indicators">
-                    ${slides.map((_, index) => `
-                        <button class="indicator ${index === 0 ? 'active' : ''}" onclick="goToSlide(${index})"></button>
-                    `).join('')}
+            <div class="slide-container">
+                <div class="slide-header">
+                    <h2 class="slide-title" id="slide-title"></h2>
+                    <p class="slide-counter" id="slide-counter"></p>
                 </div>
 
-                <button class="nav-button" id="next-button" onclick="nextSlide()">
-                    NEXT
-                    <i data-lucide="chevron-right" style="width: 24px; height: 24px;"></i>
-                </button>
+                <div class="slide-content" id="slide-content"></div>
+
+                <div class="navigation">
+                    <button class="nav-button" id="prev-button">
+                        <i data-lucide="chevron-left" style="width: 24px; height: 24px;"></i>
+                        PREVIOUS
+                    </button>
+
+                    <div class="slide-indicators" id="indicators-container">
+                        ${slides.map((_, index) => `
+                            <button class="indicator ${index === 0 ? 'active' : ''}" data-slide="${index}"></button>
+                        `).join('')}
+                    </div>
+
+                    <button class="nav-button" id="next-button">
+                        NEXT
+                        <i data-lucide="chevron-right" style="width: 24px; height: 24px;"></i>
+                    </button>
+                </div>
+            </div>
+
+            <div class="footer">
+                <p class="warning-text">SHARE THIS TRUTH BEFORE THEY SILENCE US</p>
+                <p class="disclaimer">(Just kidding - this is satire for entertainment)</p>
             </div>
         </div>
+    `;
 
-        <div class="footer">
-            <p class="warning-text">SHARE THIS TRUTH BEFORE THEY SILENCE US</p>
-            <p class="disclaimer">(Just kidding - this is satire for entertainment)</p>
-        </div>
-    </div>
-`;
+    // Initialize references to buttons and indicators
+    prevButton = document.getElementById('prev-button');
+    nextButton = document.getElementById('next-button');
+    indicators = document.querySelectorAll('.indicator');
 
-lucide.createIcons();
-renderSlide();
+    // Add event listeners
+    prevButton.addEventListener('click', prevSlide);
+    nextButton.addEventListener('click', nextSlide);
+    
+    indicators.forEach((indicator, index) => {
+        indicator.addEventListener('click', () => goToSlide(index));
+    });
+
+    // Initialize lucide icons and render first slide
+    lucide.createIcons();
+    renderSlide();
 }
+
+// Start the app when DOM is ready
 document.addEventListener('DOMContentLoaded', init);
