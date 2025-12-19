@@ -237,6 +237,102 @@ document.addEventListener('DOMContentLoaded', () => {
         zoomModal.classList.add('hidden');
     }
 
+const evidenceData = {
+  e1: {
+    title: "The Photoshoot",
+    text: "Fans claim the photoshoot era looks like a different person. The scientific method used here is: squinting at pixels and trusting vibes.",
+    img: "https://upload.wikimedia.org/wikipedia/commons/8/8e/OOjs_UI_icon_camera.svg",
+    alt: "Camera icon evidence",
+    caption: "Exhibit: photographic vibes (not legally binding)"
+  },
+  e2: {
+    title: "The Sharpie",
+    text: "Signature consistency becomes a full-time job for conspiracy forums. A Sharpie line becomes a personality test.",
+    img: "https://upload.wikimedia.org/wikipedia/commons/6/6b/OOjs_UI_icon_edit-ltr.svg",
+    alt: "Marker icon evidence",
+    caption: "Exhibit: handwriting and marker-based chaos"
+  },
+  e3: {
+    title: "The Forum Post",
+    text: "A 2007 forum post is treated like a government document. Screenshots were taken. Feelings were felt.",
+    img: "https://upload.wikimedia.org/wikipedia/commons/0/0c/OOjs_UI_icon_speechBubble.svg",
+    alt: "Forum icon evidence",
+    caption: "Exhibit: sacred internet texts"
+  },
+  e4: {
+    title: "Pitch Analysis",
+    text: "We compared vocal tone using the latest lab equipment: headphones and overconfidence. Results: dramatic.",
+    img: "https://upload.wikimedia.org/wikipedia/commons/9/92/OOjs_UI_icon_chart.svg",
+    alt: "Chart icon evidence",
+    caption: "Exhibit: charts make it feel real"
+  },
+  e5: {
+    title: "Laughter Hz",
+    text: "Somebody, somewhere, decided laughter has a measurable frequency that proves identity replacement. Respect the grind, I guess.",
+    img: "https://upload.wikimedia.org/wikipedia/commons/4/43/OOjs_UI_icon_smile.svg",
+    alt: "Smile icon evidence",
+    caption: "Exhibit: smile science (unlicensed)"
+  },
+  e6: {
+    title: "The Yodel",
+    text: "A vocal moment becomes a ‘tell.’ Because nothing says forensic proof like a single weird note in a chorus.",
+    img: "https://upload.wikimedia.org/wikipedia/commons/3/3b/OOjs_UI_icon_music.svg",
+    alt: "Music icon evidence",
+    caption: "Exhibit: the note that launched 1,000 comments"
+  },
+  e7: {
+    title: "Loop Analysis",
+    text: "Signature loops are examined like they’re crop circles. One loop too round and suddenly it’s a cover-up.",
+    img: "https://upload.wikimedia.org/wikipedia/commons/9/92/OOjs_UI_icon_loop.svg",
+    alt: "Loop icon evidence",
+    caption: "Exhibit: loop-based suspicion"
+  },
+  e8: {
+    title: "Pen Pressure",
+    text: "Pen pressure changes over time for normal reasons. But normal reasons do not get clicks, so here we are.",
+    img: "https://upload.wikimedia.org/wikipedia/commons/7/7f/OOjs_UI_icon_bold.svg",
+    alt: "Bold icon evidence",
+    caption: "Exhibit: pressure = conspiracy"
+  },
+  e9: {
+    title: "Expert Opinion",
+    text: "The ‘expert’ is usually a stranger online who owns a printer and too much confidence. Still, we salute the commitment.",
+    img: "https://upload.wikimedia.org/wikipedia/commons/2/2c/OOjs_UI_icon_userAvatar.svg",
+    alt: "Expert icon evidence",
+    caption: "Exhibit: internet-certified expertise"
+  }
+};
+
+const evidenceModal = document.getElementById("evidence-modal");
+const modalTitle = document.getElementById("modal-title");
+const modalText = document.getElementById("modal-text");
+const modalImg = document.getElementById("modal-img");
+const modalImgCaption = document.getElementById("modal-img-caption");
+
+document.querySelectorAll(".evidence-card").forEach(card => {
+  card.addEventListener("click", () => {
+    const id = card.getAttribute("data-id");
+    const data = evidenceData[id];
+    if (!data) return;
+
+    modalTitle.textContent = data.title;
+    modalText.textContent = data.text;
+
+    modalImg.src = data.img;
+    modalImg.alt = data.alt;
+    modalImgCaption.textContent = data.caption;
+
+    evidenceModal.classList.remove("hidden");
+  });
+});
+
+// close modal (keeps your existing close buttons working)
+document.querySelectorAll(".close-modal").forEach(btn => {
+  btn.addEventListener("click", () => {
+    document.querySelectorAll(".modal").forEach(m => m.classList.add("hidden"));
+  });
+});
+
     // Run Init
     init();
 });

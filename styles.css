@@ -528,3 +528,21 @@ body.corkboard-on .slide-image {
         transition: none !important;
     }
 }
+
+.evidence-card {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.card-thumb {
+  width: 22px;
+  height: 22px;
+  opacity: 0.9;
+}
+
+.modal-evidence-image img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
