@@ -1,386 +1,299 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Case File: A.L. vs M.V.</title>
-  <link rel="stylesheet" href="styles.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Case File: A.L. vs M.V.</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <div id="noise-overlay"></div>
 
-  <div class="top-ui">
-    <div class="left-controls">
-      <div class="corkboard-toggle">
-        <label class="switch">
-          <input type="checkbox" id="corkboard-switch" />
-          <span class="slider round"></span>
-        </label>
-        <span>CORKBOARD MODE</span>
-      </div>
-      <div class="hint-text">Press <strong>O</strong> for Overview</div>
+    <div id="noise-overlay"></div>
+    
+    <div class="top-ui">
+        <div class="left-controls">
+            <div class="corkboard-toggle">
+                <label class="switch">
+                    <input type="checkbox" id="corkboard-switch">
+                    <span class="slider round"></span>
+                </label>
+                <span>CORKBOARD MODE</span>
+            </div>
+            <div class="hint-text">Press <strong>O</strong> for Overview</div>
+        </div>
+
+        <div class="progress-container">
+            <div class="progress-bar" id="progress-bar"></div>
+        </div>
+        
+        <div class="slide-counter" id="slide-counter">Slide 1 / 12</div>
     </div>
 
-    <div class="progress-container">
-      <div class="progress-bar" id="progress-bar"></div>
+    <div id="overview-grid" class="hidden">
+        </div>
+
+    <main id="slide-deck">
+
+        <section class="slide active" data-slide="1" data-title="Start">
+            <div class="content-center">
+                <div class="stamp-badge">SATIRE MODE: ON</div>
+                <h1 class="glitch-text">AVRIL LAVIGNE IS DEAD.</h1>
+                <h2>AND THEY THINK YOU WON’T NOTICE.</h2>
+                <p class="subtitle">A totally serious case file made with red string and poor decisions.</p>
+                <div class="prompt">Press <span class="key">→</span> or <span class="key">Space</span> to begin</div>
+            </div>
+        </section>
+
+        <section class="slide" data-slide="2" data-title="Official Story">
+            <div class="content-standard">
+                <h3>The Official Story (AKA Boring)</h3>
+                <ul>
+                    <li>Avril stayed the same forever</li>
+                    <li>Fame never changes anyone</li>
+                    <li>Corporations are emotionally normal</li>
+                </ul>
+                <div class="footer-note">Suspicious.</div>
+            </div>
+        </section>
+
+        <section class="slide" data-slide="3" data-title="Pressure Cooker">
+            <div class="content-standard">
+                <h3>The Pressure Cooker Era</h3>
+                <p>The early 2000s were a time of low-rise jeans and high-stakes fame. Internet rumors point vaguely to the mid-2000s as the "switch window". The label wanted predictability.</p>
+                <div class="big-impact-line">And then the backup plan enters the chat.</div>
+            </div>
+        </section>
+
+        <section class="slide" data-slide="4" data-title="Who is Melissa?">
+            <div class="content-split">
+                <div class="text-col">
+                    <h3>Who Is Melissa Vandella?</h3>
+                    <ul>
+                        <li>Alleged "Body Double" turned "Replacement"</li>
+                        <li>Internet lore claims she was hired to distract paparazzi</li>
+                        <li><strong>The Tell:</strong> Same hair, same vibe, but... "dead eyes" (according to Reddit)</li>
+                    </ul>
+                </div>
+                <div class="img-col zoom-wrapper">
+                    <img
+                      src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/23/Avril_Lavigne_2011_Shankbone.JPG/800px-Avril_Lavigne_2011_Shankbone.JPG"
+                      alt="The Alleged Replacement"
+                      class="slide-image zoom-trigger"
+                    />
+                    <p class="caption">Exhibit A: "Melissa" (Note the lack of skateboarding equipment)</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="slide" data-slide="5" data-title="The Timeline">
+            <div class="content-standard">
+                <h3>THE TIMELINE</h3>
+                <ul class="timeline-list">
+                    <li><strong>2002:</strong> Sk8er Era Detected (Original)</li>
+                    <li><strong>2003:</strong> Fame Pressure Spikes</li>
+                    <li><strong>2004:</strong> Internet Points Vaguely Here</li>
+                    <li><strong>2005:</strong> Brand Safety Meeting (Redacted)</li>
+                    <li><strong>2007:</strong> Voice Patch Installed ("Girlfriend" Era)</li>
+                    <li><strong>2011+:</strong> Pop-Star OS Deployed</li>
+                </ul>
+                <div class="footer-note">Is this evidence? No. Is it a vibe? Yes.</div>
+            </div>
+        </section>
+
+        <section class="slide" data-slide="6" data-title="Photo Analysis">
+            <h3>PHOTO BOARD (THEN VS NOW)</h3>
+            <div class="photo-compare">
+              <figure class="zoom-wrapper">
+                <img
+                  src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/Avril_Lavigne_Beijing_2008.jpg/640px-Avril_Lavigne_Beijing_2008.jpg"
+                  alt="Early 2000s Avril Lavigne style"
+                  class="zoom-trigger"
+                />
+                <figcaption>Then: Chaotic Energy</figcaption>
+              </figure>
+
+              <figure class="zoom-wrapper">
+                <img
+                  src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Avril_Lavigne_at_the_2019_iHeartRadio_Music_Awards_red_carpet_%28cropped%29.jpg/640px-Avril_Lavigne_at_the_2019_iHeartRadio_Music_Awards_red_carpet_%28cropped%29.jpg"
+                  alt="Later Avril Lavigne public appearance"
+                  class="zoom-trigger"
+                />
+                <figcaption>Now: Corporate Approved</figcaption>
+              </figure>
+            </div>
+        </section>
+
+        <section class="slide" data-slide="7" data-title="Exhibit A: Name">
+            <div class="content-standard">
+                <h3>Exhibit A: The ‘Melissa’ Slip-Up</h3>
+                <p>The "Paparazzi Photo" Theory: In a photoshoot where she had "Melissa" written on her hand.</p>
+                <div class="evidence-layout">
+                    <div class="evidence-image zoom-wrapper">
+                        <img
+                          src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/Lorem_ipsum_text.svg/640px-Lorem_ipsum_text.svg.png"
+                          alt="Redacted Documents"
+                          class="slide-image zoom-trigger"
+                          style="filter: invert(1);"
+                        />
+                        <p class="caption">Artist rendition of the 'Liner Notes' (Disclaimer: Real image copyright protected)</p>
+                    </div>
+                    <div class="cards-container">
+                        <div class="evidence-card" data-id="e1">The Photoshoot</div>
+                        <div class="evidence-card" data-id="e2">The Sharpie</div>
+                        <div class="evidence-card" data-id="e3">The Forum Post</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="slide" data-slide="8" data-title="Exhibit B: Voice">
+            <div class="content-standard">
+                <h3>Exhibit B: Voice Shift</h3>
+                <ul>
+                    <li>Before: raw, mezzo-soprano, punk</li>
+                    <li>After: clean, polished, high soprano</li>
+                    <li>“Audio lab: headphones + confidence”</li>
+                </ul>
+                <div class="evidence-layout">
+                    <div class="evidence-image zoom-wrapper">
+                        <img
+                          src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/77/Waveform_envelope.png/640px-Waveform_envelope.png"
+                          alt="Audio waveform comparison example"
+                          class="slide-image zoom-trigger"
+                          style="background: white;"
+                        />
+                        <p class="caption">Waveform comparison. Science.</p>
+                    </div>
+                    <div class="cards-container">
+                        <div class="evidence-card" data-id="e4">Pitch Analysis</div>
+                        <div class="evidence-card" data-id="e5">Laughter Hz</div>
+                        <div class="evidence-card" data-id="e6">The Yodel</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="slide" data-slide="9" data-title="Exhibit C: Signature">
+            <h3>Exhibit C: Signature Betrayal</h3>
+            <div class="signature-compare">
+              <figure class="zoom-wrapper">
+                <svg class="zoom-trigger" width="300" height="150" viewBox="0 0 300 150" style="background:#fff; border: 2px solid #555;">
+                     <path d="M20,100 Q50,20 80,100 T150,100 T250,50" stroke="black" stroke-width="3" fill="none"/>
+                     <text x="30" y="130" font-family="Courier" font-size="12" fill="red">TYPE: MESSY (2002)</text>
+                </svg>
+                <figcaption>Older Signature (Chaotic)</figcaption>
+              </figure>
+
+              <figure class="zoom-wrapper">
+                <svg class="zoom-trigger" width="300" height="150" viewBox="0 0 300 150" style="background:#fff; border: 2px solid #555;">
+                     <path d="M20,80 Q50,80 80,80 L150,80 L250,80" stroke="black" stroke-width="3" fill="none"/>
+                     <text x="30" y="130" font-family="Courier" font-size="12" fill="red">TYPE: FLAT (2015)</text>
+                </svg>
+                <figcaption>New Signature (Brand-Approved)</figcaption>
+              </figure>
+            </div>
+            <div class="cards-container center-cards">
+                <div class="evidence-card" data-id="e7">Loop Analysis</div>
+                <div class="evidence-card" data-id="e8">Pen Pressure</div>
+                <div class="evidence-card" data-id="e9">Expert Opinion</div>
+            </div>
+        </section>
+
+        <section
+          class="slide corkboard-slide"
+          data-slide="10"
+          data-title="THE CONNECTING WALL"
+          style="background-image: url('https://upload.wikimedia.org/wikipedia/commons/2/2e/Cork_board_texture.jpg');"
+        >
+            <div class="corkboard-visual" id="draggable-area">
+                <svg class="string-layer">
+                    <line x1="15%" y1="20%" x2="50%" y2="50%" />
+                    <line x1="85%" y1="20%" x2="50%" y2="50%" />
+                    <line x1="15%" y1="80%" x2="50%" y2="50%" />
+                    <line x1="85%" y1="80%" x2="50%" y2="50%" />
+                    <line x1="50%" y1="20%" x2="50%" y2="50%" />
+                    <line x1="50%" y1="80%" x2="50%" y2="50%" />
+                </svg>
+
+                <div class="pin-note draggable n1">Money</div>
+                <div class="pin-note draggable n2">Brand Control</div>
+                <div class="pin-note draggable n3">Predictability</div>
+                <div class="pin-note draggable n4">Brand Safety</div>
+                <div class="pin-note center-note">PIXELS = PROOF</div>
+
+                <div class="polaroid draggable p1">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/23/Avril_Lavigne_2011_Shankbone.JPG/320px-Avril_Lavigne_2011_Shankbone.JPG" alt="Melissa">
+                    <span>The Double</span>
+                </div>
+                <div class="polaroid draggable p2">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/Avril_Lavigne_Beijing_2008.jpg/320px-Avril_Lavigne_Beijing_2008.jpg" alt="Original">
+                    <span>The Original</span>
+                </div>
+            </div>
+        </section>
+
+        <section class="slide" data-slide="11" data-title="Motive">
+            <div class="content-center">
+                <h3>Motive</h3>
+                <ul class="clean-list">
+                    <li>Money</li>
+                    <li>Control</li>
+                    <li>Predictability</li>
+                    <li>Brand Safety</li>
+                </ul>
+                <div class="big-impact-line" style="margin-top: 2rem;">
+                    "Corporations don't grieve. They replace."
+                </div>
+            </div>
+        </section>
+
+        <section class="slide" data-slide="12" data-title="Disclaimer">
+            <div class="content-center">
+                <div class="disclaimer-box">
+                    <img
+                      src="https://upload.wikimedia.org/wikipedia/commons/8/8d/Warning_icon.svg"
+                      alt="Warning icon"
+                      class="small-icon"
+                    />
+                    <h3 style="margin-top: 15px;">DISCLAIMER</h3>
+                    <p>This website is satire and parody. It is not real. It is a joke based on an internet conspiracy theory.</p>
+                </div>
+                <button id="restart-btn" class="nav-btn">Restart Deck</button>
+            </div>
+        </section>
+
+    </main>
+
+    <div class="bottom-nav">
+        <button id="prev-btn" class="nav-btn">&larr; Back</button>
+        <div class="dots-container" id="dots-container"></div>
+        <button id="next-btn" class="nav-btn">Next &rarr;</button>
     </div>
 
-    <div class="slide-counter" id="slide-counter">Slide 1 / 12</div>
-  </div>
-
-  <div id="overview-grid" class="hidden"></div>
-
-  <main id="slide-deck">
-    <section class="slide active" data-slide="1">
-      <div class="content-center">
-        <div class="stamp-badge">SATIRE MODE: ON</div>
-        <h1 class="glitch-text">AVRIL LAVIGNE IS DEAD.</h1>
-        <h2>AND THEY THINK YOU WON’T NOTICE.</h2>
-        <p class="subtitle">A totally serious case file made with red string and poor decisions.</p>
-        <div class="prompt">Press <span class="key">→</span> or <span class="key">Space</span> to begin</div>
-      </div>
-    </section>
-
-    <section class="slide" data-slide="2">
-      <div class="content-standard">
-        <h3>The Official Story (AKA Boring)</h3>
-        <ul>
-          <li>Avril stayed the same forever</li>
-          <li>Fame never changes anyone</li>
-          <li>Corporations are emotionally normal</li>
-        </ul>
-        <div class="footer-note">Suspicious.</div>
-      </div>
-    </section>
-
-    <section class="slide" data-slide="3">
-      <div class="content-standard">
-        <h3>The Pressure Cooker Era</h3>
-        <p>
-          The early 2000s were a time of low-rise jeans and high-stakes fame. Internet rumors point vaguely to the mid-2000s as the "switch window".
-          The label wanted predictability.
-        </p>
-        <div class="big-impact-line">And then the backup plan enters the chat.</div>
-      </div>
-    </section>
-
-    <section class="slide" data-slide="4">
-      <div class="content-split">
-        <div class="text-col">
-          <h3>Who Is Melissa Vandella?</h3>
-          <ul>
-            <li>Alleged double (internet lore)</li>
-            <li>Supposedly hired to distract paparazzi</li>
-            <li>Same hair, same vibe, different… “vibes”</li>
-          </ul>
-          <p style="margin-top: 12px; color:#aaa; font-size: 1rem;">
-            Note: There aren’t verified, public, reusable press photos of a confirmed “Melissa Vandella.”
-            This is a joke site, so we use Avril comparison photos labeled “ALLEGED.”
-          </p>
+    <div id="evidence-modal" class="modal hidden">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h3 id="modal-title">Evidence Title</h3>
+            <div class="modal-body">
+                <p id="modal-text">Explanation goes here.</p>
+            </div>
         </div>
-        <div class="img-col zoom-wrapper">
-          <img
-            src="https://commons.wikimedia.org/wiki/Special:FilePath/Avril%20Lavigne%202013.jpg?width=900"
-            alt="Avril Lavigne performing (2013)"
-            class="slide-image zoom-trigger"
-          />
-          <p class="caption">Real Avril photo (Commons). Used for alleged comparison purposes.</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="slide" data-slide="5">
-      <div class="content-standard">
-        <h3>THE TIMELINE</h3>
-        <ul class="timeline-list">
-          <li><strong>2002:</strong> Sk8er Era Detected</li>
-          <li><strong>2003:</strong> Fame Pressure Spikes</li>
-          <li><strong>2004:</strong> Internet Points Vaguely Here</li>
-          <li><strong>2005:</strong> Brand Safety Meeting (Redacted)</li>
-          <li><strong>2007:</strong> Voice Patch Installed</li>
-          <li><strong>2011+:</strong> Pop-Star OS Deployed</li>
-        </ul>
-        <div class="footer-note">Is this evidence? No. Is it a vibe? Yes.</div>
-      </div>
-    </section>
-
-    <section class="slide" data-slide="6">
-      <h3>PHOTO BOARD (THEN VS NOW)</h3>
-      <div class="photo-compare">
-        <figure class="zoom-wrapper">
-          <img
-            src="https://commons.wikimedia.org/wiki/Special:FilePath/Avril%20Lavigne%20in%20Amsterdam,%202008%20X%20(crop).jpg?width=900"
-            alt="Avril Lavigne performing in 2008"
-            class="zoom-trigger"
-          />
-          <figcaption>Then: 2008 era (ALLEGED “pre-switch energy”)</figcaption>
-        </figure>
-
-        <figure class="zoom-wrapper">
-          <img
-            src="https://commons.wikimedia.org/wiki/Special:FilePath/Avril%20Lavigne%202013.jpg?width=900"
-            alt="Avril Lavigne performing in 2013"
-            class="zoom-trigger"
-          />
-          <figcaption>Now: 2013 era (ALLEGED “post-switch polish”)</figcaption>
-        </figure>
-      </div>
-      <p class="caption" style="margin-top:14px;">
-        Both images are Avril. The “Melissa” part is the joke claim, not a documented photo set.
-      </p>
-    </section>
-
-    <section class="slide" data-slide="7">
-      <div class="content-standard">
-        <h3>Exhibit A: The ‘Melissa’ Slip-Up</h3>
-        <p>
-          The conspiracy lore points to a photoshoot where “Melissa” appears. Fans treat credits, notes, and tiny details like sacred texts.
-          Reasonable? No. Funny? Yes.
-        </p>
-
-        <div class="evidence-layout">
-          <div class="evidence-image zoom-wrapper">
-            <img
-              src="https://commons.wikimedia.org/wiki/Special:FilePath/Avril%20Lavigne%20in%20Amsterdam,%202008%20XV.jpg?width=900"
-              alt="Avril Lavigne performing in 2008 (alternate image)"
-              class="slide-image zoom-trigger"
-            />
-            <p class="caption">Stand-in “Exhibit Photo” (swap with your own screenshot later if you want)</p>
-          </div>
-
-          <div class="cards-container">
-            <button class="evidence-card" data-id="e1" type="button">
-              <img class="card-thumb" src="https://commons.wikimedia.org/wiki/Special:FilePath/Avril%20Lavigne%20in%20Amsterdam,%202008%20X%20(crop).jpg?width=200" alt="Avril thumbnail">
-              <span>The Photoshoot</span>
-            </button>
-
-            <button class="evidence-card" data-id="e2" type="button">
-              <img class="card-thumb" src="https://commons.wikimedia.org/wiki/Special:FilePath/Avril%20Lavigne%27s%20signature.svg?width=200" alt="Avril signature thumbnail">
-              <span>The “Melissa” Marker</span>
-            </button>
-
-            <button class="evidence-card" data-id="e3" type="button">
-              <img class="card-thumb" src="https://commons.wikimedia.org/wiki/Special:FilePath/Avril%20Lavigne%202013.jpg?width=200" alt="Avril thumbnail">
-              <span>The Forum Post</span>
-            </button>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="slide" data-slide="8">
-      <div class="content-standard">
-        <h3>Exhibit B: Voice Shift</h3>
-        <ul>
-          <li>Before: raw, punk</li>
-          <li>After: clean, polished</li>
-          <li>“Audio lab: headphones + confidence”</li>
-        </ul>
-
-        <div class="evidence-layout">
-          <div class="evidence-image zoom-wrapper">
-            <img
-              src="https://upload.wikimedia.org/wikipedia/commons/3/3a/Waveform_example.png"
-              alt="Audio waveform comparison example"
-              class="slide-image zoom-trigger"
-            />
-            <p class="caption">Waveform comparison. Science.</p>
-          </div>
-
-          <div class="cards-container">
-            <button class="evidence-card" data-id="e4" type="button">
-              <img class="card-thumb" src="https://upload.wikimedia.org/wikipedia/commons/3/3a/Waveform_example.png" alt="Waveform thumbnail">
-              <span>Pitch Analysis</span>
-            </button>
-
-            <button class="evidence-card" data-id="e5" type="button">
-              <img class="card-thumb" src="https://commons.wikimedia.org/wiki/Special:FilePath/Avril%20Lavigne%202013.jpg?width=200" alt="Avril thumbnail">
-              <span>Laughter Hz</span>
-            </button>
-
-            <button class="evidence-card" data-id="e6" type="button">
-              <img class="card-thumb" src="https://commons.wikimedia.org/wiki/Special:FilePath/Avril%20Lavigne%20in%20Amsterdam,%202008%20X%20(crop).jpg?width=200" alt="Avril thumbnail">
-              <span>The Yodel</span>
-            </button>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="slide" data-slide="9">
-      <h3>Exhibit C: Signature Betrayal</h3>
-      <div class="signature-compare">
-        <figure class="zoom-wrapper">
-          <img
-            src="https://commons.wikimedia.org/wiki/Special:FilePath/Avril%20Lavigne%27s%20signature.svg?width=900"
-            alt="Avril Lavigne signature"
-            class="zoom-trigger"
-          />
-          <figcaption>Avril’s real signature (Commons)</figcaption>
-        </figure>
-
-        <figure class="zoom-wrapper">
-          <img
-            src="https://commons.wikimedia.org/wiki/Special:FilePath/Avril%20Lavigne%27s%20signature.svg?width=900"
-            alt="Avril Lavigne signature (same reference used for joke comparison)"
-            class="zoom-trigger"
-          />
-          <figcaption>“New” Signature (ALLEGED, for the bit)</figcaption>
-        </figure>
-      </div>
-
-      <div class="cards-container center-cards">
-        <button class="evidence-card" data-id="e7" type="button">
-          <img class="card-thumb" src="https://commons.wikimedia.org/wiki/Special:FilePath/Avril%20Lavigne%27s%20signature.svg?width=200" alt="Signature thumbnail">
-          <span>Loop Analysis</span>
-        </button>
-
-        <button class="evidence-card" data-id="e8" type="button">
-          <img class="card-thumb" src="https://commons.wikimedia.org/wiki/Special:FilePath/Avril%20Lavigne%27s%20signature.svg?width=200" alt="Signature thumbnail">
-          <span>Pen Pressure</span>
-        </button>
-
-        <button class="evidence-card" data-id="e9" type="button">
-          <img class="card-thumb" src="https://commons.wikimedia.org/wiki/Special:FilePath/Avril%20Lavigne%202013.jpg?width=200" alt="Avril thumbnail">
-          <span>Expert Opinion</span>
-        </button>
-      </div>
-    </section>
-
-   <section
-  class="slide corkboard-slide"
-  data-slide="10"
-  style="background-image: url('https://upload.wikimedia.org/wikipedia/commons/2/2e/Cork_board_texture.jpg');"
->
-  <div class="corkboard-visual">
-    <svg class="string-layer" viewBox="0 0 100 100" preserveAspectRatio="none">
-      <line x1="15" y1="25" x2="50" y2="50" />
-      <line x1="85" y1="25" x2="50" y2="50" />
-      <line x1="15" y1="75" x2="50" y2="50" />
-      <line x1="85" y1="75" x2="50" y2="50" />
-      <line x1="50" y1="15" x2="50" y2="50" />
-      <line x1="50" y1="85" x2="50" y2="50" />
-    </svg>
-
-    <!-- Center thesis -->
-    <div class="pin-note center-note draggable">PIXELS = PROOF</div>
-
-    <!-- Motive notes -->
-    <div class="pin-note n1 draggable">Predictability</div>
-    <div class="pin-note n2 draggable">Brand Safety</div>
-    <div class="pin-note n3 draggable">Money</div>
-    <div class="pin-note n4 draggable">Brand Control</div>
-
-    <!-- NEW: pinned evidence photos -->
-    <button class="pin-photo p1 zoom-wrapper zoom-trigger" type="button"
-      data-evidence="e1"
-      aria-label="Open photoshoot evidence">
-      <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Avril%20Lavigne%20in%20Amsterdam,%202008%20X%20(crop).jpg?width=600"
-           alt="Avril photo (2008) for comparison">
-      <span class="pin-label">ALLEGED “BEFORE”</span>
-    </button>
-
-    <button class="pin-photo p2 zoom-wrapper zoom-trigger" type="button"
-      data-evidence="e3"
-      aria-label="Open forum evidence">
-      <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Avril%20Lavigne%202013.jpg?width=600"
-           alt="Avril photo (2013) for comparison">
-      <span class="pin-label">ALLEGED “AFTER”</span>
-    </button>
-
-    <button class="pin-photo p3 zoom-wrapper zoom-trigger" type="button"
-      data-evidence="e7"
-      aria-label="Open signature evidence">
-      <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Avril%20Lavigne%27s%20signature.svg?width=600"
-           alt="Avril signature">
-      <span class="pin-label">SIGNATURE FILE</span>
-    </button>
-
-    <button class="pin-photo p4 zoom-wrapper zoom-trigger" type="button"
-      data-evidence="e4"
-      aria-label="Open waveform evidence">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/3/3a/Waveform_example.png"
-           alt="Waveform example">
-      <span class="pin-label">VOICE “SCIENCE”</span>
-    </button>
-
-    <!-- NEW: tiny status HUD -->
-    <div class="case-hud">
-      <div class="hud-title">CASE CONFIDENCE</div>
-      <div class="hud-bar">
-        <div class="hud-fill" id="confidence-fill"></div>
-      </div>
-      <div class="hud-sub" id="confidence-text">Click evidence pins to “confirm” the conspiracy.</div>
     </div>
-  </div>
-</section>
 
-    <section class="slide" data-slide="11">
-      <div class="content-center">
-        <h3>Motive</h3>
-        <ul class="clean-list">
-          <li>Money</li>
-          <li>Control</li>
-          <li>Predictability</li>
-          <li>Brand Safety</li>
-        </ul>
-        <div class="big-impact-line" style="margin-top: 2rem;">"Corporations don't grieve. They replace."</div>
-      </div>
-    </section>
-
-    <section class="slide" data-slide="12">
-      <div class="content-center">
-        <div class="disclaimer-box">
-          <img
-            src="https://upload.wikimedia.org/wikipedia/commons/8/8d/Warning_icon.svg"
-            alt="Warning icon"
-            class="small-icon"
-          />
-          <h3 style="margin-top: 15px;">DISCLAIMER</h3>
-          <p>This website is satire and parody. It is not real. It is a joke based on an internet conspiracy theory.</p>
+    <div id="zoom-modal" class="modal hidden">
+        <div class="zoom-content">
+            <span class="close-modal">&times;</span>
+            <div class="zoom-viewport">
+                <div id="zoom-target-container"></div>
+            </div>
+            <div class="zoom-controls">
+                <input type="range" min="1" max="3" step="0.1" value="1" id="zoom-slider">
+                <button id="enhance-btn">ENHANCE</button>
+            </div>
+            <div id="enhance-status"></div>
         </div>
-        <button id="restart-btn" class="nav-btn">Restart Deck</button>
-      </div>
-    </section>
-  </main>
-
-  <div class="bottom-nav">
-    <button id="prev-btn" class="nav-btn">&larr; Back</button>
-    <div class="dots-container" id="dots-container"></div>
-    <button id="next-btn" class="nav-btn">Next &rarr;</button>
-  </div>
-
-  <!-- Evidence Modal (now includes image slot) -->
-  <div id="evidence-modal" class="modal hidden">
-    <div class="modal-content">
-      <span class="close-modal">&times;</span>
-      <h3 id="modal-title">Evidence Title</h3>
-
-      <div class="modal-evidence">
-        <img id="modal-img" src="" alt="" class="modal-img zoom-trigger" />
-        <p id="modal-img-caption" class="caption"></p>
-      </div>
-
-      <div class="modal-body">
-        <p id="modal-text">Explanation goes here.</p>
-      </div>
     </div>
-  </div>
 
-  <div id="zoom-modal" class="modal hidden">
-    <div class="zoom-content">
-      <span class="close-modal">&times;</span>
-      <div class="zoom-viewport">
-        <div id="zoom-target-container"></div>
-      </div>
-      <div class="zoom-controls">
-        <input type="range" min="1" max="3" step="0.1" value="1" id="zoom-slider" />
-        <button id="enhance-btn">ENHANCE</button>
-      </div>
-      <div id="enhance-status"></div>
-    </div>
-  </div>
-
-  <script src="script.js"></script>
+    <script src="app.js"></script>
 </body>
 </html>
