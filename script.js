@@ -6,7 +6,7 @@ const slides = [
         title: "THEY DO NOT WANT YOU TO KNOW",
         content: `
             <div class="text-center space-y-6">
-                <div class="emoji-large animate-pulse">👁️</div>
+                <div class="emoji-large animate-pulse"><img src="images/eye.gif" alt="all seeing eye"></div>
                 <h2 class="text-5xl font-bold text-red-600 -rotate-1">
                     THE AVRIL LAVIGNE REPLACEMENT CONSPIRACY
                 </h2>
@@ -52,58 +52,70 @@ const slides = [
         `
     },
     {
-        title: "THE PHYSICAL EVIDENCE",
-        content: `
-            <div class="space-y-6">
-                <div class="text-center text-3xl font-bold text-yellow-400 mb-4">
-                    THE BODY NEVER LIES
+    title: "THE PHYSICAL EVIDENCE",
+    content: `
+        <div class="space-y-6">
+            <div class="text-center text-3xl font-bold text-yellow-400 mb-4">
+                THE BODY NEVER LIES
+            </div>
+            <div class="grid grid-cols-2 gap-4 mb-6">
+                <div class="box-gray">
+                    <div class="photo-placeholder photo-placeholder-yellow">
+                        <p class="text-yellow-400 text-center"><img src="images/avril2002.png" alt="Avril Lavigne in 2002"><br/>(2002-2003)</p>
+                    </div>
+                    <p class="text-xl font-bold text-yellow-300 text-center">BEFORE</p>
                 </div>
-                <div class="grid grid-cols-2 gap-4 mb-6">
-                    <div class="box-gray">
-                        <div class="photo-placeholder photo-placeholder-yellow">
-                            <p class="text-yellow-400 text-center">INSERT EARLY AVRIL PHOTO HERE<br/>(2002-2003)</p>
-                        </div>
-                        <p class="text-xl font-bold text-yellow-300 text-center">BEFORE</p>
+                <div class="box-gray" style="border-color: #f87171;">
+                    <div class="photo-placeholder photo-placeholder-red">
+                        <p class="text-red-400 text-center"><img src="images/avrilafter2002.png" alt="Avril Lavigne after 2002"><br/>(2004+)</p>
                     </div>
-                    <div class="box-gray" style="border-color: #f87171;">
-                        <div class="photo-placeholder photo-placeholder-red">
-                            <p class="text-red-400 text-center">INSERT LATER AVRIL PHOTO HERE<br/>(2004+)</p>
-                        </div>
-                        <p class="text-xl font-bold text-red-300 text-center">AFTER</p>
-                    </div>
-                </div>
-                <div class="grid grid-cols-2 gap-4">
-                    <div class="box-red">
-                        <p class="text-xl font-bold text-yellow-300">THE NOSE</p>
-                        <p class="text-white">Pre-2003: Slightly wider bridge</p>
-                        <p class="text-red-300">Post-2003: Narrower, more refined</p>
-                        <p class="text-xs text-gray-300 mt-2">(Note: Lighting and aging change appearance)</p>
-                    </div>
-                    <div class="box-purple">
-                        <p class="text-xl font-bold text-green-300">THE EYES</p>
-                        <p class="text-white">Pre-2003: Rounder, wider set</p>
-                        <p class="text-red-300">Post-2003: More almond-shaped</p>
-                        <p class="text-xs text-gray-300 mt-2">(Note: Makeup techniques evolved)</p>
-                    </div>
-                    <div class="box-blue">
-                        <p class="text-xl font-bold text-red-300">FACIAL STRUCTURE</p>
-                        <p class="text-white">Pre-2003: Softer jawline</p>
-                        <p class="text-red-300">Post-2003: Sharper features</p>
-                        <p class="text-xs text-gray-300 mt-2">(Note: She literally grew up)</p>
-                    </div>
-                    <div class="box-green" style="border-color: #a855f7;">
-                        <p class="text-xl font-bold text-purple-300">BIRTHMARKS</p>
-                        <p class="text-white">Some MYSTERIOUSLY DISAPPEARED</p>
-                        <p class="text-red-300">Or LASER REMOVED?</p>
-                        <p class="text-xs text-gray-300 mt-2">(People remove birthmarks)</p>
-                    </div>
-                </div>
-                <div class="text-center p-4 box-black">
-                    <p class="text-2xl text-red-500 font-bold">BUT WAIT THERE IS MORE!</p>
+                    <p class="text-xl font-bold text-red-300 text-center">AFTER</p>
                 </div>
             </div>
-        `
-    },
+            
+            <div class="text-center p-4" style="background: #7f1d1d; border: 4px solid #fbbf24; margin-bottom: 1.5rem;">
+                <p class="text-2xl text-yellow-300 font-bold">SIDE-BY-SIDE COMPARISON: THE SMOKING GUN</p>
+            </div>
+            
+            <div class="box-gray mb-6" style="border: 4px solid #dc2626;">
+                <div class="photo-placeholder" style="height: 20rem; border-color: #dc2626;">
+                    <p class="text-red-400 text-center text-xl"><img src="images/Compare.jpg" alt="Compairing Avril and Melissa"><br/>(Split screen showing facial differences)</p>
+                </div>
+                <p class="text-2xl font-bold text-red-500 text-center mt-4">LOOK AT THE DIFFERENCES!</p>
+            </div>
+            
+            <div class="grid grid-cols-2 gap-4">
+                <div class="box-red">
+                    <p class="text-xl font-bold text-yellow-300">THE NOSE</p>
+                    <p class="text-white">Pre-2003: Slightly wider bridge</p>
+                    <p class="text-red-300">Post-2003: Narrower, more refined</p>
+                    <p class="text-xs text-gray-300 mt-2">(Note: Lighting and aging change appearance)</p>
+                </div>
+                <div class="box-purple">
+                    <p class="text-xl font-bold text-green-300">THE EYES</p>
+                    <p class="text-white">Pre-2003: Rounder, wider set</p>
+                    <p class="text-red-300">Post-2003: More almond-shaped</p>
+                    <p class="text-xs text-gray-300 mt-2">(Note: Makeup techniques evolved)</p>
+                </div>
+                <div class="box-blue">
+                    <p class="text-xl font-bold text-red-300">FACIAL STRUCTURE</p>
+                    <p class="text-white">Pre-2003: Softer jawline</p>
+                    <p class="text-red-300">Post-2003: Sharper features</p>
+                    <p class="text-xs text-gray-300 mt-2">(Note: She literally grew up)</p>
+                </div>
+                <div class="box-green" style="border-color: #a855f7;">
+                    <p class="text-xl font-bold text-purple-300">BIRTHMARKS</p>
+                    <p class="text-white">Some MYSTERIOUSLY DISAPPEARED</p>
+                    <p class="text-red-300">Or LASER REMOVED?</p>
+                    <p class="text-xs text-gray-300 mt-2">(People remove birthmarks)</p>
+                </div>
+            </div>
+            <div class="text-center p-4 box-black">
+                <p class="text-2xl text-red-500 font-bold">BUT WAIT THERE IS MORE!</p>
+            </div>
+        </div>
+    `
+},
     {
         title: "THE SMOKING GUN: HANDWRITING",
         content: `
@@ -118,13 +130,13 @@ const slides = [
                 <div class="grid grid-cols-2 gap-6 mb-6">
                     <div class="box-gray">
                         <div class="photo-placeholder-small photo-placeholder-yellow">
-                            <p class="text-yellow-400 text-center">INSERT 2002 AUTOGRAPH HERE</p>
+                            <p class="text-yellow-400 text-center"><img src="images/avrilsigbefore2002.jpg" alt="Avril Lavigne signature in 2002"></p>
                         </div>
                         <p class="text-center text-yellow-300 font-bold">2002 SIGNATURE</p>
                     </div>
                     <div class="box-gray" style="border-color: #f87171;">
                         <div class="photo-placeholder-small photo-placeholder-red">
-                            <p class="text-red-400 text-center">INSERT 2004 AUTOGRAPH HERE</p>
+                            <p class="text-red-400 text-center"><img src="images/avrilsigfter2002.jpeg" alt="Avril Lavigne signature after 2002"></p>
                         </div>
                         <p class="text-center text-red-300 font-bold">2004 SIGNATURE</p>
                     </div>
@@ -235,7 +247,7 @@ const slides = [
                 <div class="box-yellow -rotate-1">
                     <p class="text-2xl font-bold text-white mb-4">THE MYSTERIOUS WOMAN:</p>
                     <div class="photo-placeholder photo-placeholder-red">
-                        <p class="text-red-400 text-center">INSERT PHOTO OF<br/>MELISSA VANDELLA<br/>(IF YOU CAN FIND ONE)</p>
+                        <p class="text-red-400 text-center"><img src="images/Melissa.jpg" alt="Melissa"></p>
                     </div>
                     <p class="text-yellow-300 text-lg">Almost NO information exists about her before 2003!</p>
                     <p class="text-red-400 text-xl font-bold mt-3">CONVENIENT RIGHT?</p>
@@ -280,12 +292,12 @@ const slides = [
                 <div class="box-red">
                     <p class="text-2xl font-bold text-white mb-4">THE MELISSA T-SHIRT INCIDENT:</p>
                     <div class="photo-placeholder photo-placeholder-yellow">
-                        <p class="text-yellow-400 text-center">INSERT PHOTO OF AVRIL<br/>WEARING MELISSA SHIRT</p>
+                        <p class="text-yellow-400 text-center"><img src="images/elissaonhand.png" alt="Avril Lavigne with Melissa written on hand"></p>
                     </div>
-                    <p class="text-yellow-300 text-lg">In 2004 Avril was photographed wearing a shirt that said MELISSA</p>
+                    <p class="text-yellow-300 text-lg">In 2004 Avril was photographed whith the name MELISSA written on her hand</p>
                     <p class="text-red-400 text-xl font-bold mt-3">WAS THIS A CRY FOR HELP?!</p>
                     <p class="text-white mt-2">Conspiracy theorists say she was DESPERATE to reveal her true identity!</p>
-                    <p class="text-xs text-gray-400 mt-3">(It was likely just a friend shirt or a brand name)</p>
+                    <p class="text-xs text-gray-400 mt-3">(It was likely just a friend Name or a brand name)</p>
                 </div>
                 <div class="grid grid-cols-2 gap-4">
                     <div class="box-purple -rotate-1">
