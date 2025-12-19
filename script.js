@@ -136,7 +136,7 @@ const slides = [
                     </div>
                     <div class="box-gray" style="border-color: #f87171;">
                         <div class="photo-placeholder-small photo-placeholder-red">
-                            <p class="text-red-400 text-center"><img src="images/avrilsigfter2002.jpeg" alt="Avril Lavigne signature after 2002"></p>
+                            <p class="text-red-400 text-center"><img src="images/avrilsigafter2002.jpeg" alt="Avril Lavigne signature after 2002"></p>
                         </div>
                         <p class="text-center text-red-300 font-bold">2004 SIGNATURE</p>
                     </div>
@@ -292,7 +292,7 @@ const slides = [
                 <div class="box-red">
                     <p class="text-2xl font-bold text-white mb-4">THE MELISSA T-SHIRT INCIDENT:</p>
                     <div class="photo-placeholder photo-placeholder-yellow">
-                        <p class="text-yellow-400 text-center"><img src="images/elissaonhand.png" alt="Avril Lavigne with Melissa written on hand"></p>
+                        <p class="text-yellow-400 text-center"><img src="images/melissaonhand.png" alt="Avril Lavigne with Melissa written on hand"></p>
                     </div>
                     <p class="text-yellow-300 text-lg">In 2004 Avril was photographed whith the name MELISSA written on her hand</p>
                     <p class="text-red-400 text-xl font-bold mt-3">WAS THIS A CRY FOR HELP?!</p>
@@ -449,7 +449,48 @@ function init() {
             </div>
         </div>
     `;
+// Image modal functionality
+function setupImageModal() {
+    // Create modal if it doesn't exist
+    let modal = document.getElementById('image-modal');
+    if (!modal) {
+        modal = document.createElement('div');
+        modal.id = 'image-modal';
+        modal.className = 'image-modal';
+        modal.innerHTML = `
+            <button class="image-modal-close" id="modal-close">&times;</button>
+            <img class="image-modal-content" id="modal-image" src="" alt="">
+            <div class="image-modal-caption" id="modal-caption"></div>
+        `;
+        document.body.appendChild(modal);
 
+        // Close modal on click
+        modal.addEventListener('click', function(e) {
+            if (e.target === modal || e.target.id === 'modal-close') {
+                modal.classList.remove('active');
+            }
+        });
+
+        // Close on escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                modal.classList.remove('active');
+            }
+        });
+    }
+
+    // Add click handlers to all images
+    const images = document.querySelectorAll('.slide-image, .slide-image-large');
+    images.forEach(img => {
+        img.addEventListener('click', function() {
+            const modalImg = document.getElementById('modal-image');
+            const modalCaption = document.getElementById('modal-caption');
+            modal.classList.add('active');
+            modalImg.src = this.src;
+            modalCaption.textContent = this.alt;
+        });
+    });
+}
     // Initialize references to buttons and indicators
     prevButton = document.getElementById('prev-button');
     nextButton = document.getElementById('next-button');
@@ -467,6 +508,28 @@ function init() {
     lucide.createIcons();
     renderSlide();
 }
+function renderSlide() {
+    const slideTitle = document.getElementById('slide-title');
+    const slideCounter = document.getElementById('slide-counter');
+    const slideContent = document.getElementById('slide-content');
 
+    slideTitle.textContent = slides[currentSlide].title;
+    slideCounter.textContent = `Slide ${currentSlide + 1} of ${slides.length}`;
+    slideContent.innerHTML = slides[currentSlide].content;
+
+    prevButton.disabled = currentSlide === 0;
+    nextButton.disabled = currentSlide === slides.length - 1;
+
+    indicators.forEach((indicator, index) => {
+        if (index === currentSlide) {
+            indicator.classList.add('active');
+        } else {
+            indicator.classList.remove('active');
+        }
+    });
+
+    // Setup image modal for any images on this slide
+    setupImageModal();
+}
 // Start the app when DOM is ready
 document.addEventListener('DOMContentLoaded', init);
