@@ -7,7 +7,7 @@ const slides = [
         content: `
             <div class="text-center space-y-6">
                 <div class="animate-pulse">
-                <img src="images/eyeeee.png" alt="all seeing eye" style="width: 250px; height: 200px; display: flex; justify-content: center; align-items: center; width: 100%; margin: 0 auto;"></div>
+                <img src="images/eyeeee.png" alt="all seeing eye" style="width: 250px; height: 200px; display: flex; justify-content: center; align-items: center; margin: 0 auto;"></div>
                 <h2 class="text-5xl font-bold text-red-600 -rotate-1">
                     THE AVRIL LAVIGNE REPLACEMENT CONSPIRACY
                 </h2>
