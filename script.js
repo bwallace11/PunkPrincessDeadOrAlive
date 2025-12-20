@@ -6,8 +6,8 @@ const slides = [
         title: "THEY DO NOT WANT YOU TO KNOW",
         content: `
             <div class="text-center space-y-6">
-                <div class="emoji-large animate-pulse" style="justify-content: center; align-items: center;>
-                <img src="images/eye.png" alt="all seeing eye" style="width: 150px; height: 150px;"></div>
+                <div class="emoji-large animate-pulse">
+                <img src="images/eye.png" alt="all seeing eye" style="width: 150px; height: 150px; justify-content: center; align-items: center;"></div>
                 <h2 class="text-5xl font-bold text-red-600 -rotate-1">
                     THE AVRIL LAVIGNE REPLACEMENT CONSPIRACY
                 </h2>
@@ -278,8 +278,8 @@ const slides = [
                 <div class="text-center text-4xl font-bold text-yellow-400 mb-6">
                     PICTURES DO NOT LIE... OR DO THEY?
                 </div>
-                <div class="box-red">
-                    <p class="text-2xl font-bold text-white mb-4">THE MELISSA T-SHIRT INCIDENT:</p>
+                <div class="box-red">T-SHIRT
+                    <p class="text-2xl font-bold text-white mb-4">THE MELISSA MESSAGE INCIDENT:</p>
                     <img src="images/melissaonhand.png" alt="MELISSA written on hand" class="slide-image">
                     <p class="text-yellow-300 text-lg">In 2004 Avril was photographed with the name MELISSA written on her hand</p>
                     <p class="text-red-400 text-xl font-bold mt-3">WAS THIS A CRY FOR HELP?!</p>
